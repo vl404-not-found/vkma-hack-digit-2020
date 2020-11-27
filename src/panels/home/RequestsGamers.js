@@ -8,18 +8,18 @@ export const RequestGamers = ({req}) => {
             <Group separator="hide">
                 <CardGrid>
                     <Card size="l" mode="outline">
-                        <Cell before={<Avatar src={"/ex/avatar.jpg"} size={48}/>}
+                        <Cell before={<Avatar src={req.avatar_url} size={48}/>}
                               after={<Icon28MessageOutline/>}>
                             <div style={{display:"flex"}}>
                                 <Counter size={"s"} mode={"primary"}>
-                                    Primary
+                                    {req.game_name}
                                 </Counter>
                             </div>
                             <Title level="2" weight="heavy">
-                                {req.text}
+                                {req.name}
                             </Title>
                             <Subhead weight="regular">
-                                Есть приличный опыт в команде СПб Могу играть как просто на рофле, так и на IGL
+                                {req.text}
                             </Subhead>
                         </Cell>
                     </Card>
