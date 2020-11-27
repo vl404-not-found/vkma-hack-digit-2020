@@ -2,23 +2,30 @@ import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader'
-import {Div, FixedLayout, Search, Tabs, TabsItem, View} from "@vkontakte/vkui";
+import {Div, FixedLayout, Search, Tabs, TabsItem, View, Button} from "@vkontakte/vkui";
 import {Icon24GameOutline} from "@vkontakte/icons";
 import Icon24Filter from '@vkontakte/icons/dist/24/filter';
 import {useDispatch, useSelector} from "react-redux";
 import * as uiActions from "../../store/dynamicui/actions";
-import * as statsActions from "../../store/stats/actions";
-import Button from "@vkontakte/vkui/dist/components/Button/Button";
+import {getRequestsCom, getRequestsMain} from "../../store/requests/actions";
+import {RequestGamers} from "./RequestsGamers";
 
 const Home = ({id}) => {
     const dispatch = useDispatch()
     const ui = useSelector(s => s.dynamic_ui)
-    // const stats = useSelector(s => s.stats.your)
+    const linker = useSelector(s => s.dynamic_ui.history[ui.history.length - 1].split("/")[1])
+    const req = useSelector(s => s.requests)
 
 
     useEffect(() => {
-        // dispatch()
+        dispatch(getRequestsMain.saga())
     }, [dispatch])
+
+    useEffect(() => {
+        linker === 'commands' ?
+            dispatch(getRequestsCom.saga()) :
+            dispatch(getRequestsCom.saga())
+    }, [linker, dispatch])
 
     return (
         <Panel id={id}>
@@ -56,24 +63,28 @@ const Home = ({id}) => {
             </FixedLayout>
             <View style={{marginTop: '90px'}} activePanel={ui.history[ui.history.length - 1].split("/")[1]}>
                 <Panel id={"gamers"}>
-                    <Div>
-
-                    </Div>
+                    {Array.isArray(req.main) ? req.main.map(s => (
+                        <RequestGamers req={s}/>
+                    )) : ''}
                 </Panel>
                 <Panel id={"commands"}>
-                    <Div>
-                        Заявки команды
-                    </Div>
+                    {Array.isArray(req.com) ? req.main.map(s => (
+                        <RequestGamers req={s}/>
+                    )) : ''}
                 </Panel>
                 <Panel id={"your"}>
+                    {Array.isArray(req.your) ? req.com.map(s => (
+                        <RequestGamers req={s}/>
+                    )) : ''}
                     <Div>
-                        <Div style={{ marginTop: 0 }}>
-                            <Button size="xl" stretched style={{ marginRight: 8 }} onClick={() => dispatch(uiActions.push_route('add_req/news'))}>Добавить заявку</Button>
+                        <Div style={{marginTop: 0}}>
+                            <Button size="xl" stretched style={{marginRight: 8}}
+                                    onClick={() => dispatch(uiActions.push_route('add_req/news'))}>Добавить
+                                заявку</Button>
                         </Div>
                     </Div>
                 </Panel>
             </View>
-
         </Panel>
     )
 };
