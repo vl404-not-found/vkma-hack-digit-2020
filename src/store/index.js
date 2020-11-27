@@ -9,11 +9,14 @@ import {all} from 'redux-saga/effects';
 import {combineReducers} from 'redux';
 import {statsReducer} from "./stats/reducer";
 import {statsSaga} from "./stats/sagas";
+import {reqReducer} from "./requests/reducer";
+import {requestSaga} from "./requests/sagas";
 
 const createRootReducer = () => combineReducers({
     dynamic_ui: uiReducer,
     vk_data: vkReducer,
     stats: statsReducer,
+    requests: reqReducer,
     toasts
 });
 
@@ -22,6 +25,7 @@ function* rootSaga() {
     yield all([
         ...vkDataSaga,
         ...statsSaga,
+        ...requestSaga
     ]);
 }
 

@@ -44,8 +44,6 @@ function* backendAuthSaga() {
             .catch(function (error) {
                 console.log(error);
             });
-        yield put(error('ok'))
-
     } catch (e){
         yield put(error('error'))
     }
