@@ -11,6 +11,10 @@ import {Epic, ScreenSpinner} from "@vkontakte/vkui";
 
 import {TabBar} from "./components/TabBar";
 import Proto from "./panels/proto";
+import SelectMarketPlace from "./panels/selection_players";
+import Team from "./panels/team_main";
+import TeamAdd from "./panels/team_main/AddTeam";
+
 
 const App = () => {
 
@@ -34,6 +38,20 @@ const App = () => {
                     <Home id='requests' />
                 </View>
 
+                <View activePanel="selection" id="selection"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <SelectMarketPlace id='selection' />
+                </View>
+
+                <View activePanel="commands" id="commands"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <Team id='commands' />
+                </View>
+
+                <View activePanel="add_team" id="add_team"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <TeamAdd id='add_team' />
+                </View>
                 {/*(Redux DevTools Dispatcher) если хочешь перейти на конкретный экран -- выполни :
                 ----------------------
                 {
@@ -47,6 +65,8 @@ const App = () => {
                       popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
                     <Proto id='proto/main' />
                 </View>
+
+
             </Epic>
         </Provider>
     );
