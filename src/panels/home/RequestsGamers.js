@@ -2,7 +2,7 @@ import React from "react";
 import {Avatar, Card, CardGrid, Cell, Group, Subhead, Title, Counter} from "@vkontakte/vkui";
 import {Icon28MessageOutline} from "@vkontakte/icons";
 
-export const RequestGamers = () => {
+export const RequestGamers = ({req}) => {
     return (
         <>
             <Group separator="hide">
@@ -16,7 +16,7 @@ export const RequestGamers = () => {
                                 </Counter>
                             </div>
                             <Title level="2" weight="heavy">
-                                Георгий Летов
+                                {req.text}
                             </Title>
                             <Subhead weight="regular">
                                 Есть приличный опыт в команде СПб Могу играть как просто на рофле, так и на IGL

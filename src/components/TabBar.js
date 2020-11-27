@@ -7,14 +7,14 @@ import Icon28ServicesOutline from '@vkontakte/icons/dist/28/services_outline';
 import Icon28GameOutline from '@vkontakte/icons/dist/28/game_outline';
 import Icon28Users3Outline from '@vkontakte/icons/dist/28/users_3_outline';
 import Icon28SettingsOutline from '@vkontakte/icons/dist/28/settings_outline';
-import {backendAuth, subscribeVKEvents} from "../store/vkdata/actions";
+// import {backendAuth} from "../store/vkdata/actions";
 
 export const TabBar = () => {
     const history = useSelector(s => s.dynamic_ui.history)
     const dispatch = useDispatch();
 
     useEffect( () => {
-        dispatch(backendAuth.saga())
+        // dispatch(backendAuth.saga())
     }, [dispatch])
 
     return (
