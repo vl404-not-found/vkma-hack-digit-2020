@@ -73,7 +73,7 @@ const Home = ({id}) => {
                     )) : ''}
                 </Panel>
                 <Panel id={"your"}>
-                    {Array.isArray(req.your) ? req.com.map(s => (
+                    {Array.isArray(req.your) ? req.your.map(s => (
                         <RequestGamers req={s}/>
                     )) : ''}
                     <Div>
