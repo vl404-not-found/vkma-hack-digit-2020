@@ -14,6 +14,7 @@ import Proto from "./panels/proto";
 import SelectMarketPlace from "./panels/selection_players";
 import Team from "./panels/team_main";
 import TeamAdd from "./panels/team_main/AddTeam";
+import AddReq from "./panels/my_reqts";
 
 
 const App = () => {
@@ -51,6 +52,11 @@ const App = () => {
                 <View activePanel="add_team" id="add_team"
                       popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
                     <TeamAdd id='add_team' />
+                </View>
+
+                <View activePanel="add_req" id="add_req"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <AddReq id='add_req' />
                 </View>
                 {/*(Redux DevTools Dispatcher) если хочешь перейти на конкретный экран -- выполни :
                 ----------------------

@@ -8,6 +8,7 @@ import Icon24Filter from '@vkontakte/icons/dist/24/filter';
 import {useDispatch, useSelector} from "react-redux";
 import * as uiActions from "../../store/dynamicui/actions";
 import * as statsActions from "../../store/stats/actions";
+import Button from "@vkontakte/vkui/dist/components/Button/Button";
 
 const Home = ({id}) => {
     const dispatch = useDispatch()
@@ -61,12 +62,14 @@ const Home = ({id}) => {
                 </Panel>
                 <Panel id={"commands"}>
                     <Div>
-                        ndejkfcмавимиоар
+                        Заявки команды
                     </Div>
                 </Panel>
                 <Panel id={"your"}>
                     <Div>
-                        ndejkfcмавимиоар
+                        <Div style={{ marginTop: 0 }}>
+                            <Button size="xl" stretched style={{ marginRight: 8 }} onClick={() => dispatch(uiActions.push_route('add_req/news'))}>Добавить заявку</Button>
+                        </Div>
                     </Div>
                 </Panel>
             </View>
