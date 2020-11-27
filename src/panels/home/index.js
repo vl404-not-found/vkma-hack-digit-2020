@@ -7,7 +7,6 @@ import {Icon24GameOutline} from "@vkontakte/icons";
 import Icon24Filter from '@vkontakte/icons/dist/24/filter';
 import {useDispatch, useSelector} from "react-redux";
 import * as uiActions from "../../store/dynamicui/actions";
-import * as statsActions from "../../store/stats/actions";
 
 const Home = ({id}) => {
     const dispatch = useDispatch()

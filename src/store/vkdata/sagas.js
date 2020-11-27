@@ -36,7 +36,7 @@ function* backendAuthSaga() {
             // url: 'https://scripthub.ru/cyber_mini_apps/api.php?module=games&steam_id=76561198176825319',
         };
 
-        const resp = yield axios(config)
+        yield axios(config)
             .then(function (response) {
                 console.log(response.data);
                 return response.data

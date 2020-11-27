@@ -11,6 +11,11 @@ import {Epic, ScreenSpinner} from "@vkontakte/vkui";
 
 import {TabBar} from "./components/TabBar";
 import Proto from "./panels/proto";
+import GameCom from "./panels/games/index";
+import Set from "./panels/setting/index";
+import DopSet from "./panels/setting/dobsetting";
+
+
 
 const App = () => {
 
@@ -47,10 +52,21 @@ const App = () => {
                       popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
                     <Proto id='proto/main' />
                 </View>
+                <View activePanel="games" id="games"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <GameCom id='games' />
+                </View>
+                <View activePanel="settings" id="settings"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <Set id='settings' />
+                </View>
+                <View activePanel="dopsettings" id="dopsettings"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <DopSet id='dopsettings' />
+                </View>
             </Epic>
         </Provider>
     );
 }
 
 export default App;
-
