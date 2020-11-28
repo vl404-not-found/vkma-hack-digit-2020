@@ -24,9 +24,4 @@ export const reqReducer = createReducer(initialState, {
             your: payload
         }
     },
-    [actions.getSteamGame.set]: (state, payload) => {
-        return { ...state,
-            games: payload
-        }
-    },
 });

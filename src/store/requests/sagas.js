@@ -57,16 +57,8 @@ function* backendRegSaga ({$payload}) {
         yield put(error('error req'));
     }
 }
-function* getSteamGameSaga ({$payload}) {
-    try {
-        const items = yield select(s => s.dynamic_ui.start_data);
-        const resp = yield request({...items, ...{module: 'get_all_games'}})
-        yield putToStore(actions.getSteamGame, resp)
-        console.log(resp)
-    } catch (e) {
-        yield put(error('error req'));
-    }
-}
+
+
 
 
 export const requestSaga = [
@@ -75,5 +67,4 @@ export const requestSaga = [
     takeLatest(actions.getRequestsYour.saga, getYourRequestsSaga),
     takeLatest(actions.postRequestsTextReq.saga, postRequestsTextReqSaga),
     takeLatest(actions.backendReg.saga, backendRegSaga),
-    takeLatest(actions.getSteamGame.saga, getSteamGameSaga),
 ]

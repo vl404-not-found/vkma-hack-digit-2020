@@ -1,7 +1,6 @@
 import React from  'react'
 import {List, Avatar, Cell, Group} from "@vkontakte/vkui";
 
-
 const SteamKill = ({req}) => {
   return(
     <>
@@ -9,10 +8,11 @@ const SteamKill = ({req}) => {
       <List>
         <Cell
             selectable
-            before={<Avatar src={('/ex/avatar.jpg')} size={48}/>}
+            before={<Avatar src={req.image} size={48}/>}
             text="Игра"
-          >
-          Название игры
+          description={"Сыграно: " + req.playtime + " ч."}
+             >
+          {req.name}
         </Cell>
       </List>
     </Group>
