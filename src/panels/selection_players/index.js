@@ -1,6 +1,5 @@
-import {Div, Panel, PanelHeader, Search} from '@vkontakte/vkui'
 import React, {useEffect} from 'react';
-import {FixedLayout, View, Panel, PanelHeader, Search} from '@vkontakte/vkui'
+import {FixedLayout, Div, View, Panel, PanelHeader, Search} from '@vkontakte/vkui'
 
 import Icon24NotificationOutline from '@vkontakte/icons/dist/24/notification_outline'
 import Icon24Filter from "@vkontakte/icons/dist/24/filter";
