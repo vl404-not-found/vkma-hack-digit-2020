@@ -14,6 +14,8 @@ import Proto from "./panels/proto";
 import GameCom from "./panels/games/index";
 import Set from "./panels/setting/index";
 import DopSet from "./panels/setting/dobsetting";
+import AddGame from "./panels/games/addGame";
+import Link from "./panels/games/linkAccount";
 
 
 
@@ -63,6 +65,14 @@ const App = () => {
                 <View activePanel="dopsettings" id="dopsettings"
                       popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
                     <DopSet id='dopsettings' />
+                </View>
+                <View activePanel="addGame" id="addGame"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <AddGame id='addGame' />
+                </View>
+                <View activePanel="addGame/playstation" id="addGame/playstation"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <Link id='addGame/playstation' />
                 </View>
             </Epic>
         </Provider>

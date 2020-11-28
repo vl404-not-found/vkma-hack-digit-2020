@@ -1,11 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useSelector} from 'react';
 import {Div, ModalCard, ModalPage, ModalRoot, Button, Panel, PanelHeader, Group, Search, FixedLayout, View, ActionSheet, ActionSheetItem} from '@vkontakte/vkui'
-import {CellButton, List, SimpleCell, Avatar, FormLayout, Select} from '@vkontakte/vkui'
+import {Header, Cell, Checkbox, CellButton, List, SimpleCell, Avatar, FormLayout, Select} from '@vkontakte/vkui'
 import Icon24Filter from '@vkontakte/icons/dist/24/filter';
+import {useDispatch} from "react-redux";
+import * as uiActions from '../../store/dynamicui/actions'
+
 
 
 const Game = ({id}) => {
   const [modal, setModal]= useState(null);
+  const dispatch = useDispatch();
 
   const openBase= (
       <ModalRoot activeModal={modal}>
@@ -32,7 +36,11 @@ const Game = ({id}) => {
                 </FormLayout>
                 <Div></Div>
                 <Div></Div>
-                    <Button stretched size="xl" style={{width:'95%', margin:'0 auto'}}>Добавить игру</Button>
+                    <Button
+                      stretched
+                      size="xl"
+                      style={{width:'95%', margin:'0 auto'}}
+                      >Показать результат</Button>
                   <Div></Div>
                   <Div></Div>
                   <Div></Div>
@@ -47,7 +55,7 @@ const Game = ({id}) => {
 
     return (
       <Panel id={id} >
-           <PanelHeader>
+           <PanelHeader separator={false}>
              Игры
           </PanelHeader>
             <View modal={openBase}>
@@ -58,16 +66,23 @@ const Game = ({id}) => {
                           </div>
                       </div>
                   }/>
-                  <List>
-                    <SimpleCell
-                        before={<Avatar src={('/ex/avatar.jpg')} size={48}/>}
-                        text="Игра"
-                      >
-                      Название игры
-                    </SimpleCell>
-                  </List>
+                  <Group separator="hide">
+                    <List>
+                      <SimpleCell
+                          before={<Avatar src={('/ex/avatar.jpg')} size={48}/>}
+                          text="Игра"
+                        >
+                        Название игры
+                      </SimpleCell>
+                    </List>
+                  </Group>
                   <FixedLayout vertical="bottom">
-                    <Button stretched size="xl" style={{width:'95%', margin:'0 auto'}}>Добавить игру</Button>
+                    <Button
+                       stretched
+                       size="xl"
+                       style={{width:'95%', margin:'0 auto'}}
+                       onClick = {() => dispatch(uiActions.push_route('addGame/steam'))}
+                       >Добавить игру</Button>
                   </FixedLayout>
             </View>
         </Panel>
