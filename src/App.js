@@ -32,6 +32,8 @@ import Team from "./panels/team_main";
 import TeamAdd from "./panels/team_main/AddTeam";
 import AddReq from "./panels/my_reqts";
 import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
+import PageTeam from "./panels/page_team";
+import PageUser from "./panels/page_user";
 
 
 const App = () => {
@@ -66,7 +68,7 @@ const App = () => {
             <ToastContainer/>
             <Root activeView={'epic'} modal={baseModal} popout={ui.isLoaderShow ?
                 <PopoutWrapper hasMask={true}><ScreenSpinner size='large'/></PopoutWrapper> : null}>
-                <Epic id={'epic'} activeStory={ui.history[ui.history.length - 1].split("/")[0]} tabbar={<TabBar/>}>
+                    <Epic id={'epic'} activeStory={ui.history[ui.history.length - 1].split("/")[0]} tabbar={<TabBar/>}>
                     <View activePanel="requests"
                           id={'requests'}
                     >
@@ -129,6 +131,14 @@ const App = () => {
                     </View>
 
                     {/*Тут обозначаете условный "роут"*/}
+                    <View activePanel="page_team" id="page_team">
+                        <PageTeam id='page_team'/>
+                    </View>
+
+                    <View activePanel="page_user" id="page_user">
+                        <PageUser id='page_user'/>
+                    </View>
+
                     <View activePanel="proto/main" id="proto/main">
                         <Proto id='proto/main'/>
                     </View>
