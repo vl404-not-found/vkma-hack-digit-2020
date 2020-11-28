@@ -122,7 +122,6 @@ const App = () => {
                            Выбор команды
                        </ModalPageHeader>}>
                 <Search/>
-
                 {Array.isArray(adm_teams) ? adm_teams.map((item) => (
                     <>
                         <Radio value={item.id}>
