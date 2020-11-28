@@ -35,8 +35,8 @@ const PageUser = ({id}) => {
             <SimpleCell before={<Avatar size={72} src={data.avatar_url} />} description="Рейтинг 4.8"><text weight="semibold">{data.name}</text></SimpleCell>
             {/*тут твой уникальный код*/}
             <Div style={{display: 'flex'}}>
-                <Button size="xl" stretched style={{ marginRight: 8 }}>Написать</Button>
-                <Button size="xl" stretched style={{ marginRight: 8 }}>Перейти на ст...</Button>
+                <Button size="l" stretched style={{ marginRight: 8 }}>Написать</Button>
+                <Button size="l" stretched style={{ marginRight: 8 }}>Перейти на ст...</Button>
             </Div>
 
             <Separator style={{marginTop: 20}}/>
