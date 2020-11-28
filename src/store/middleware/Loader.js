@@ -15,7 +15,9 @@ export function LoaderMiddleware({dispatch, getState}) {
                 if (action.type.includes('TOAST')
                     || action.type.includes('PUSH_TO_HISTORY')
                     || action.type.includes('SET')) {
+                    setTimeout(()=>{
                     dispatch(dynamicActions.hideLoader())
+                    }, 300)
                 }
             } catch (e) {
             }
