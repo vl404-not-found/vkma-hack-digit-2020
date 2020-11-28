@@ -19,13 +19,18 @@ import * as uiActions from '../../store/dynamicui/actions'
 import {getSteamGame} from '../../store/requests/actions'
 
 const RegSteam = ({id}) => {
+  const dispatch = useDispatch();
+
   return(
     <Panel>
       <PanelHeader>
         ck cmdc
       </PanelHeader>
-      <Button size="l" href="https://scripthub.ru/cyber_mini_apps/steam_auth.php?login">jijij</Button>
+      <iframe>
+        href="https://scripthub.ru/cyber_mini_apps/steam_auth.php?login"
+      >jijij</iframe>
     </Panel>
 
   )
 }
+export default RegSteam;
