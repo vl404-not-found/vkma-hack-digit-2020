@@ -1,14 +1,15 @@
 import React, {useEffect} from 'react';
-import {FixedLayout, View, Panel, PanelHeader, Search} from '@vkontakte/vkui'
+import {FixedLayout, Div, View, Panel, PanelHeader, Search} from '@vkontakte/vkui'
+
 import Icon24NotificationOutline from '@vkontakte/icons/dist/24/notification_outline'
 import Icon24Filter from "@vkontakte/icons/dist/24/filter";
 import TabsItem from "@vkontakte/vkui/dist/components/TabsItem/TabsItem";
 import {useDispatch, useSelector} from "react-redux";
 import * as uiActions from "../../store/dynamicui/actions";
 import Tabs from "@vkontakte/vkui/dist/components/Tabs/Tabs";
+import Button from "@vkontakte/vkui/dist/components/Button/Button";
 import * as gameActions from "../../store/games/actions";
-import Steam from './steamac.js'
-
+import Steam from './steamac'
 
 
 const SelectMarketPlace = ({id}) => {
@@ -54,6 +55,11 @@ const SelectMarketPlace = ({id}) => {
                 onClick={() => dispatch(uiActions.push_route('selection/Телефон'))}
                 selected={ui.history[ui.history.length - 1].split("/")[1] === 'Телефон'}> Телефон
             </TabsItem>
+
+            <Div style={{ marginTop: 0 }}>
+                <Button size="xl" stretched style={{ marginRight: 8 }} onClick={() => dispatch(uiActions.push_route('page_user'))}>page test</Button>
+            </Div>
+            {/*тут твой уникальный код*/}
 
             </Tabs>
           </FixedLayout>
