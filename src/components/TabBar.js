@@ -29,7 +29,7 @@ export const TabBar = () => {
             <TabbarItem
                 selected={history[history.length - 1].includes('selection')}
                 text="Подбор"
-                onClick = {() => dispatch(uiActions.push_route('selection/main'))}
+                onClick = {() => dispatch(uiActions.push_route('selection/steam'))}
             >
                 <Icon28ServicesOutline />
             </TabbarItem>

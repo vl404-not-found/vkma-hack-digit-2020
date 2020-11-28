@@ -1,5 +1,5 @@
 import React from  'react'
-import {Separator, Placeholder, Button, Div, PanelHeader, Panel, SimpleCell, Title} from "@vkontakte/vkui";
+import {Placeholder, Button, PanelHeader, Panel, SimpleCell} from "@vkontakte/vkui";
 import * as uiActions from '../../store/dynamicui/actions'
 import {useDispatch, useSelector} from "react-redux";
 import Icon28ArrowLeftOutline from '@vkontakte/icons/dist/28/arrow_left_outline';

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Button, Panel, PanelHeader, Search, FixedLayout, View} from '@vkontakte/vkui'
+import {Panel, PanelHeader, Search, FixedLayout, View} from '@vkontakte/vkui'
 import {TabsItem, Tabs, SimpleCell} from '@vkontakte/vkui'
 import Icon28ArrowLeftOutline from '@vkontakte/icons/dist/28/arrow_left_outline';
 import * as uiActions from '../../store/dynamicui/actions'
@@ -57,10 +57,10 @@ const GameAdd = ({id}) => {
                 </TabsItem>
             </Tabs>
           </FixedLayout>
-          <View style={{marginTop: '90px'}} activePanel={ui.history[ui.history.length - 1].split("/")[1]}>
+          <View activePanel={ui.history[ui.history.length - 1].split("/")[1]}>
               <Panel id={"steam"}>
                   {Array.isArray(games.steam) ? games.steam.map(s => (
-                      <Steam req={s}/>
+                      <Steam req={s} />
                   )) : <LinkAccount />}
               </Panel>
               <Panel id={"playstation"}>
@@ -79,7 +79,6 @@ const GameAdd = ({id}) => {
                   )) : <LinkAccount /> }
               </Panel>
           </View>
-
 
       </Panel>
     )

@@ -1,21 +1,16 @@
 import React from 'react'
 import {
-    Div,
-    ModalCard,
-    ModalPage,
-    ModalRoot,
+
+
     Button,
     Panel,
     PanelHeader,
     Group,
-    Search,
     FixedLayout,
-    View,
+
     List,
     SimpleCell,
     Avatar,
-    FormLayout,
-    Select,
     Cell,
     Header
 } from '@vkontakte/vkui'
