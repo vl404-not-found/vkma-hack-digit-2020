@@ -80,6 +80,7 @@ const Game = ({id}) => {
                 <Group separator="hide">
                     <List>
                         <SimpleCell
+                            onClick={() => dispatch(uiActions.push_route('pageGame'))}
                             before={<Avatar src={('/ex/avatar.jpg')} size={48}/>}
                             text="Игра"
                         >

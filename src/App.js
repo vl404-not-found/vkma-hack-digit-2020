@@ -26,6 +26,7 @@ import Set from "./panels/setting/index";
 import DopSet from "./panels/setting/dobsetting";
 import AddGame from "./panels/games/addGame";
 import Link from "./panels/games/linkAccount";
+import PageGame from "./panels/games/pageGame";
 import SelectMarketPlace from "./panels/selection_players";
 import Team from "./panels/team_main";
 import TeamAdd from "./panels/team_main/AddTeam";
@@ -122,8 +123,11 @@ const App = () => {
                     >
                         <AddGame id='addGame'/>
                     </View>
-                    <View activePanel="addGame/playstation" id="addGame/playstation">
-                        <Link id='addGame/playstation'/>
+                    <View activePanel="steam" id="steam">
+                        <Link id='steam'/>
+                    </View>
+                    <View activePanel="pageGame" id="pageGame">
+                        <PageGame id='pageGame'/>
                     </View>
                     {/*Тут обозначаете условный "роут"*/}
                     <View activePanel="proto/main" id="proto/main">
