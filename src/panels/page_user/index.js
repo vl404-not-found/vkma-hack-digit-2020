@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Counter, MiniInfoCell, Panel, PanelHeader, PanelHeaderBack} from '@vkontakte/vkui'
+import {MiniInfoCell, Panel, PanelHeader, PanelHeaderBack} from '@vkontakte/vkui'
 import Avatar from "@vkontakte/vkui/dist/components/Avatar/Avatar";
 import SimpleCell from "@vkontakte/vkui/dist/components/SimpleCell/SimpleCell";
 import Button from "@vkontakte/vkui/dist/components/Button/Button";
@@ -14,8 +14,8 @@ import Icon20Info from "@vkontakte/icons/dist/20/info";
 import Card from "@vkontakte/vkui/dist/components/Card/Card";
 import CardScroll from "@vkontakte/vkui/dist/components/CardScroll/CardScroll";
 import Group from "@vkontakte/vkui/dist/components/Group/Group";
-import CardGrid from "@vkontakte/vkui/dist/components/CardGrid/CardGrid";
-import {RequestGamers} from "../home/RequestsGamers";
+//import CardGrid from "@vkontakte/vkui/dist/components/CardGrid/CardGrid";
+//import {RequestGamers} from "../home/RequestsGamers";
 
 
 const PageUser = ({id}) => {

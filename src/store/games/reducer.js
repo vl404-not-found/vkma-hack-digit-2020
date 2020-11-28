@@ -6,7 +6,8 @@ const initialState = {
     steam: null,
     ps: null,
     mobile: null,
-    all: null
+    all: null,
+    addgame: null,
 };
 
 export const gamesReducer = createReducer(initialState, {
@@ -18,6 +19,11 @@ export const gamesReducer = createReducer(initialState, {
     [actions.getSteamGame.set]: (state, payload) => {
         return { ...state,
             steam: payload
+        }
+    },
+    [actions.getSteamGameArray.set]: (state, payload) => {
+        return { ...state,
+            addgame: payload
         }
     },
 });
