@@ -11,6 +11,7 @@ import Button from "@vkontakte/vkui/dist/components/Button/Button";
 import * as gameActions from "../../store/games/actions";
 import Steam from './steamac'
 
+
 const SelectMarketPlace = ({id}) => {
     const dispatch = useDispatch()
     const ui = useSelector(s => s.dynamic_ui)
@@ -21,7 +22,11 @@ const SelectMarketPlace = ({id}) => {
 
     return (
         <Panel id={id}>
-            <PanelHeader left={<Icon24NotificationOutline style={{ color: '#3F8AE0' }}/>} >
+            <PanelHeader
+              left={<Icon24NotificationOutline
+                 style={{ color: '#3F8AE0' }}
+                 onClick = {() => dispatch(uiActions.push_route('selpeople'))}
+            />} >
                 Подбор
             </PanelHeader>
 

@@ -84,7 +84,7 @@ const Home = ({id}) => {
                     <Div>
                         <Div style={{marginTop: 0}}>
                             <Button size="xl" stretched style={{marginRight: 8}}
-                                    onClick={() => dispatch(uiActions.push_route('add_req/news'))}>Добавить
+                                    onClick={() => dispatch(uiActions.push_route('add_req/find_solo'))}>Добавить
                                 заявку</Button>
                         </Div>
                     </Div>
