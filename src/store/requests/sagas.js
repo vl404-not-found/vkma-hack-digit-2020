@@ -43,6 +43,16 @@ function* postRequestsTextReqSaga ({$payload}) {
         const resp = yield request({...items, ...{module: 'add_request'}, ...$payload})
         console.log(resp)
         yield put(error('Заявка создана!'));
+          } catch (e) {
+              yield put(error('error req'));
+          }
+    
+    }
+function* backendRegSaga ({$payload}) {
+    try {
+        const items = yield select(s => s.dynamic_ui.start_data);
+        const resp = yield request({...items, ...{module: 'first_auth'}})
+        console.log(resp)
     } catch (e) {
         yield put(error('error req'));
     }
@@ -54,4 +64,5 @@ export const requestSaga = [
     takeLatest(actions.getRequestsCom.saga, getComRequestsSaga),
     takeLatest(actions.getRequestsYour.saga, getYourRequestsSaga),
     takeLatest(actions.postRequestsTextReq.saga, postRequestsTextReqSaga),
+    takeLatest(actions.backendReg.saga, backendRegSaga),
 ]

@@ -7,7 +7,7 @@ import {Icon24GameOutline} from "@vkontakte/icons";
 import Icon24Filter from '@vkontakte/icons/dist/24/filter';
 import {useDispatch, useSelector} from "react-redux";
 import * as uiActions from "../../store/dynamicui/actions";
-import {getRequestsCom, getRequestsMain} from "../../store/requests/actions";
+import {backendReg, getRequestsCom, getRequestsMain, getRequestsYour} from "../../store/requests/actions";
 import {RequestGamers} from "./RequestsGamers";
 
 const Home = ({id}) => {
@@ -18,13 +18,14 @@ const Home = ({id}) => {
 
 
     useEffect(() => {
+        dispatch(backendReg.saga())
         dispatch(getRequestsMain.saga())
     }, [dispatch])
 
     useEffect(() => {
         linker === 'commands' ?
             dispatch(getRequestsCom.saga()) :
-            dispatch(getRequestsCom.saga())
+            dispatch(getRequestsYour.saga())
     }, [linker, dispatch])
 
     return (

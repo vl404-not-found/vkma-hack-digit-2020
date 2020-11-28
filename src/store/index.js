@@ -11,12 +11,15 @@ import {statsReducer} from "./stats/reducer";
 import {statsSaga} from "./stats/sagas";
 import {reqReducer} from "./requests/reducer";
 import {requestSaga} from "./requests/sagas";
+import {gamesSaga} from "./games/sagas";
+import {gamesReducer} from "./games/reducer";
 
 const createRootReducer = () => combineReducers({
     dynamic_ui: uiReducer,
     vk_data: vkReducer,
     stats: statsReducer,
     requests: reqReducer,
+    games: gamesReducer,
     toasts
 });
 
@@ -25,7 +28,8 @@ function* rootSaga() {
     yield all([
         ...vkDataSaga,
         ...statsSaga,
-        ...requestSaga
+        ...requestSaga,
+        ...gamesSaga
     ]);
 }
 
