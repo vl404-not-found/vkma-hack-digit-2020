@@ -24,30 +24,30 @@ function* subscribeSaga() {
     }
 }
 
-const getItems = state => state.dynamic_ui
+// const getItems = state => state.dynamic_ui
 
-function* backendAuthSaga() {
-    try {
-        const items = yield select(getItems);
-        let config = {
-            method: 'get',
-            url: `${ApiBaseURL}?${qs.stringify({module: 'add_request', text: '123', game_id: '1', ...items.start_data})}`,
-            // add_request&text=123&game_id=1&user_id=XXXX
-            // url: 'https://scripthub.ru/cyber_mini_apps/api.php?module=games&steam_id=76561198176825319',
-        };
-
-        yield axios(config)
-            .then(function (response) {
-                console.log(response.data);
-                return response.data
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    } catch (e){
-        yield put(error('error'))
-    }
-}
+// function* backendAuthSaga() {
+//     try {
+//         const items = yield select(getItems);
+//         let config = {
+//             method: 'get',
+//             url: `${ApiBaseURL}?${qs.stringify({module: 'add_request', text: '123', game_id: '1', ...items.start_data})}`,
+//             // add_request&text=123&game_id=1&user_id=XXXX
+//             // url: 'https://scripthub.ru/cyber_mini_apps/api.php?module=games&steam_id=76561198176825319',
+//         };
+//
+//         yield axios(config)
+//             .then(function (response) {
+//                 console.log(response.data);
+//                 return response.data
+//             })
+//             .catch(function (error) {
+//                 console.log(error);
+//             });
+//     } catch (e){
+//         yield put(error('error'))
+//     }
+// }
 
 
 function* userGetSaga() {
@@ -67,5 +67,5 @@ function* userGetSaga() {
 export const vkDataSaga = [
     takeLatest(actions.subscribeVKEvents.saga, subscribeSaga),
     takeLatest(actions.userGet.saga, userGetSaga),
-    takeLatest(actions.backendAuth.saga, backendAuthSaga)
+    // takeLatest(actions.backendAuth.saga, backendAuthSaga)
 ]

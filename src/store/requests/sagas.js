@@ -37,9 +37,20 @@ function* getYourRequestsSaga ({$payload}) {
     }
 }
 
+function* backendRegSaga ({$payload}) {
+    try {
+        const items = yield select(s => s.dynamic_ui.start_data);
+        const resp = yield request({...items, ...{module: 'first_auth'}})
+        console.log(resp)
+    } catch (e) {
+        yield put(error('error req'));
+    }
+}
+
 
 export const requestSaga = [
     takeLatest(actions.getRequestsMain.saga, getRequestsSaga),
     takeLatest(actions.getRequestsCom.saga, getComRequestsSaga),
     takeLatest(actions.getRequestsYour.saga, getYourRequestsSaga),
+    takeLatest(actions.backendReg.saga, backendRegSaga),
 ]

@@ -7,7 +7,7 @@ export const RequestGamers = ({req}) => {
         <>
             <Group separator="hide">
                 <CardGrid>
-                    <Card size="l" mode="outline">
+                    <Card size="l" mode="outline" style={{border: '1px double #ccc'}}>
                         <Cell before={<Avatar src={req.avatar_url} size={48}/>}
                               after={<Icon28MessageOutline/>}>
                             <div style={{display:"flex"}}>
@@ -15,7 +15,7 @@ export const RequestGamers = ({req}) => {
                                     {req.game_name}
                                 </Counter>
                             </div>
-                            <Title level="2" weight="heavy">
+                            <Title level="3" weight="heavy">
                                 {req.name}
                             </Title>
                             <Subhead weight="regular">

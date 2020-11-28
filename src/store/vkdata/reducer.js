@@ -17,9 +17,9 @@ export const vkReducer = createReducer(initialState, {
             userData: payload
         }
     },
-    [actions.userGet.set]: (state) => {
-        return {
-            ...state,
-        }
-    },
+    // [actions.userGet.set]: (state) => {
+    //     return {
+    //         ...state,
+    //     }
+    // },
 });
