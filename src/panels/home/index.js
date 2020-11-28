@@ -9,6 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 import * as uiActions from "../../store/dynamicui/actions";
 import {backendReg, getRequestsCom, getRequestsMain, getRequestsYour} from "../../store/requests/actions";
 import {RequestGamers} from "./RequestsGamers";
+import {RequestTeam} from "./RequestsTeam";
 
 
 const Home = ({id}) => {
@@ -73,7 +74,7 @@ const Home = ({id}) => {
                 </Panel>
                 <Panel id={"commands"}>
                     {Array.isArray(req.com) ? req.com.map(s => (
-                        <RequestGamers req={s}/>
+                        <RequestTeam req={s}/>
                     )) : ''}
                 </Panel>
                 <Panel id={"your"}>
