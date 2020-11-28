@@ -37,7 +37,7 @@ const GameAdd = ({id}) => {
                   Steam
                 </TabsItem>
                 <TabsItem
-                onClick={() => dispatch(uiActions.push_route('playstation'))}
+                onClick={() => dispatch(uiActions.push_route('addGame/playstation'))}
                 selected={ui.history[ui.history.length - 1].split("/")[1] === 'playstation'}>
                   PlayStation
                 </TabsItem>
