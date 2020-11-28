@@ -24,7 +24,7 @@ const LinkAccount = ({id}) => {
           <Placeholder
             icon={<Icon56UserAddOutline />}
             header="Привяжите аккаунт Steam"
-            action={<Button size="l" href="https://scripthub.ru/cyber_mini_apps/steam_auth_return.php?login">Привязать аккаунт</Button>}
+            action={<Button size="l" href="https://scripthub.ru/cyber_mini_apps/steam_auth.php?login">Привязать аккаунт</Button>}
           >
             Прикрипите аккаунт Steam, чтобы использовать сисистему поиска игроков
          </Placeholder>
