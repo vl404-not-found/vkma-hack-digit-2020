@@ -6,7 +6,7 @@ import Button from "@vkontakte/vkui/dist/components/Button/Button";
 import Div from "@vkontakte/vkui/dist/components/Div/Div";
 import * as uiActions from "../../store/dynamicui/actions";
 import {RequestGamers} from "../home/RequestsGamers";
-import {backendReg, conclusionMyTeam, getRequestsMain} from "../../store/requests/actions";
+import {conclusionMyTeam} from "../../store/requests/actions";
 
 const Team = ({id}) => {
     const dispatch = useDispatch()

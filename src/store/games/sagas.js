@@ -24,8 +24,19 @@ function* getSteamGameSaga ({$payload}) {
         yield put(error('error req'));
     }
 }
-
+function* getSteamGameArraySaga ({$payload}) {
+    try {
+        const items = yield select(s => s.dynamic_ui.start_data);
+        const resp = yield request({...items, ...{module: 'add_user_games'}})
+        yield putToStore(actions.getSteamGameArray, resp)
+        console.log(resp)
+    } catch (e) {
+        yield put(error('error req'));
+    }
+}
 export const gamesSaga = [
     takeLatest(actions.getAllGames.saga, getAllGamesSaga),
-    takeLatest(actions.getSteamGame.saga, getSteamGameSaga)
+    takeLatest(actions.getSteamGame.saga, getSteamGameSaga),
+    takeLatest(actions.getSteamGameArray.saga, getSteamGameArraySaga)
+
 ]

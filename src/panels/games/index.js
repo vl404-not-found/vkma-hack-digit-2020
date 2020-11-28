@@ -16,13 +16,13 @@ import {List, SimpleCell, Avatar, FormLayout, Select} from '@vkontakte/vkui'
 import Icon24Filter from '@vkontakte/icons/dist/24/filter';
 import {useDispatch, useSelector} from "react-redux";
 import * as uiActions from '../../store/dynamicui/actions'
-import {getAllGames} from '../../store/games/actions'
+import {getSteamGameArray} from '../../store/games/actions'
 
 const Game = ({id}) => {
     const [modal, setModal] = useState(null);
     const dispatch = useDispatch();
     const Games = useSelector(s => s.games.all);
-    useEffect(()=>{dispatch(getAllGames.saga())},[dispatch])
+    useEffect(()=>{dispatch(getSteamGameArray.saga())},[dispatch])
 
     const openBase = (
         <ModalRoot activeModal={modal}>
