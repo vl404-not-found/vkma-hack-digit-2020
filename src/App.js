@@ -37,11 +37,9 @@ import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
 const App = () => {
 
     const [ui, SetUi] = useState(store.getState().dynamic_ui)
-
     function handleActions() {
         SetUi(store.getState().dynamic_ui)
     }
-
     store.subscribe(handleActions)
 
     const baseModal = (
