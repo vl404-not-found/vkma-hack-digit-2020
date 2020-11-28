@@ -38,7 +38,7 @@ const dispatch = useDispatch();
             <SimpleCell
                 before={<Icon24DocumentOutline />}
 
-                onClick = {() => dispatch(uiActions.push_route('dopsettings/ksksg'))}
+                onClick = {() => dispatch(uiActions.push_route('dopsettings'))}
                 text="Настроки"
               >
               Данные аккаунта
