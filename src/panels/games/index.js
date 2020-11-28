@@ -97,7 +97,7 @@ const Game = ({id}) => {
                         stretched
                         size="xl"
                         style={{width: '95%', margin: '0 auto'}}
-                        onClick={() => dispatch(uiActions.push_route('djdj'))}
+                        onClick={() => dispatch(uiActions.push_route('addGame/steam'))}
                     >Добавить игру</Button>
                 </FixedLayout>
             </View>
