@@ -1,7 +1,7 @@
 import React from  'react'
-import {FixedLayout, Button, List, Avatar, Cell, Group} from "@vkontakte/vkui";
+import {List, Avatar, Cell, Group} from "@vkontakte/vkui";
 
-const SteamKill = ({req}) => {
+const SteamAc = ({req}) => {
   return(
     <>
     <Group separator="hide">
@@ -16,14 +16,7 @@ const SteamKill = ({req}) => {
         </Cell>
       </List>
     </Group>
-    <FixedLayout vertical="bottom">
-        <Button
-            stretched
-            size="xl"
-            style={{width: '95%', margin: '0 auto'}}
-        >Добавить игру</Button>
-    </FixedLayout>
     </>
   )
 }
- export default SteamKill;
+ export default SteamAc;
