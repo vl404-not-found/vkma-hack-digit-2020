@@ -75,7 +75,7 @@ const Game = ({id}) => {
                 <Search icon={
                     <div style={{display: "flex", marginRight: "80%"}}>
                         <div style={{margin: "7px"}}>
-                            <Icon24Filter onClick={() => setModal('select')}/>
+                              <Icon24Filter onClick={() => dispatch(uiActions.open_modal('selectgames'))}/>
                         </div>
                     </div>
                 }/>

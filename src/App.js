@@ -3,12 +3,14 @@ import View from '@vkontakte/vkui/dist/components/View/View';
 import '@vkontakte/vkui/dist/vkui.css';
 
 import Home from './panels/home/index';
-import {Provider} from "react-redux";
 
 import {store} from './store/index'
 import ToastContainer from './components/Toasts';
 import {
     Epic,
+    Panel,
+    PanelHeader,
+
     FormLayout,
     ModalCard,
     ModalPage,
@@ -16,7 +18,10 @@ import {
     ModalRoot, PopoutWrapper,
     Root,
     ScreenSpinner,
-    Select
+    Select,
+    SimpleCell,
+    Div,
+    Button
 } from "@vkontakte/vkui";
 
 import {TabBar} from "./components/TabBar";
@@ -35,18 +40,20 @@ import AddReq from "./panels/my_reqts";
 import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
 import PageTeam from "./panels/page_team";
 import PageUser from "./panels/page_user";
-
+import * as uiActions from './store/dynamicui/actions'
+import {useDispatch} from 'react-redux'
 
 const App = () => {
-
+    const dispatch = useDispatch()
     const [ui, SetUi] = useState(store.getState().dynamic_ui)
     function handleActions() {
         SetUi(store.getState().dynamic_ui)
     }
     store.subscribe(handleActions)
 
+
     const baseModal = (
-        <ModalRoot activeModal={ui.modal}>
+        <ModalRoot activeModal={ui.modal} onClose={() => dispatch(uiActions.open_modal(null))}>
             <ModalPage id="filter_main"
                        header={<ModalPageHeader left={<Icon24Cancel/>} right={<>Очистить</>}>
                            Фильтры
@@ -54,18 +61,49 @@ const App = () => {
                 <FormLayout>
                     <Select top="Сортировка">
                         <option value="rel" selected>По релевантности</option>
-                        <option value="f">По </option>
+                        <option value="f">По новизне</option>
                     </Select>
                 </FormLayout>
             </ModalPage>
-            <ModalCard id="faq">
-                ...
-            </ModalCard>
+            <ModalPage id="selectgames">
+                <Panel>
+                    <PanelHeader
+                        onClick={() => dispatch(uiActions.open_modal(null))}
+                        right={'Очистить'}
+                        style={{marginTop: '-50px'}}
+                    >
+                        <SimpleCell>Фильтры</SimpleCell>
+
+                    </PanelHeader>
+                    <FormLayout>
+                        <Select top="Платформа" placeholder="Все">
+                            <option value="m">PC</option>
+                            <option value="f">PlayStation</option>
+                            <option value="a">Xbox</option>
+                        </Select>
+                        <Select top="Метод поиска" placeholder="Все">
+                            <option value="m">1 метод</option>
+                            <option value="f">2 метод</option>
+                        </Select>
+                    </FormLayout>
+                    <Div></Div>
+                    <Div></Div>
+                    <Button
+                        stretched
+                        size="xl"
+                        style={{width: '95%', margin: '0 auto'}}
+                    >Показать результат</Button>
+                    <Div></Div>
+                    <Div></Div>
+                    <Div></Div>
+                </Panel>
+            </ModalPage>
         </ModalRoot>
+
     )
 
     return (
-        <Provider store={store}>
+        <>
             <ToastContainer/>
             <Root activeView={'epic'} modal={baseModal} popout={ui.isLoaderShow ?
                 <PopoutWrapper hasMask={true}><ScreenSpinner size='large'/></PopoutWrapper> : null}>
@@ -150,7 +188,7 @@ const App = () => {
 
                 </Epic>
             </Root>
-        </Provider>
+        </>
     );
 }
 
