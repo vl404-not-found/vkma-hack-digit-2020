@@ -1,5 +1,5 @@
 import React from  'react'
-import {Avatar, RichCell, Panel, PanelHeader, SimpleCell, Group} from "@vkontakte/vkui";
+import {Avatar, RichCell, Panel, PanelHeader, Group} from "@vkontakte/vkui";
 import Icon28ArrowLeftOutline from '@vkontakte/icons/dist/28/arrow_left_outline';
 import * as uiActions from '../../store/dynamicui/actions'
 import {useDispatch} from "react-redux";

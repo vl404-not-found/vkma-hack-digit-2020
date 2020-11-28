@@ -12,7 +12,6 @@ import {
     PanelHeader,
 
     FormLayout,
-    ModalCard,
     ModalPage,
     ModalPageHeader,
     ModalRoot, PopoutWrapper,
