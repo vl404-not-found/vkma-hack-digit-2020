@@ -17,7 +17,7 @@ export function LoaderMiddleware({dispatch, getState}) {
                     || action.type.includes('SET')) {
                     setTimeout(()=>{
                     dispatch(dynamicActions.hideLoader())
-                    }, 300)
+                    }, 1500)
                 }
             } catch (e) {
             }

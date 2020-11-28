@@ -1,6 +1,5 @@
 import React from  'react'
-import {SimpleCell, List, Avatar, Card, CardGrid, Cell, Group, Subhead, Title, Counter} from "@vkontakte/vkui";
-import {Icon28MessageOutline} from "@vkontakte/icons";
+import {List, Avatar, Cell, Group} from "@vkontakte/vkui";
 
 
 const SteamKill = ({req}) => {

@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-import {Checkbox, Div, FixedLayout, Panel, PanelHeader, Search, View} from '@vkontakte/vkui'
+import {Checkbox, Div, FixedLayout, Panel, PanelHeader, View} from '@vkontakte/vkui'
 import {useDispatch, useSelector} from "react-redux";
 import * as uiActions from "../../store/dynamicui/actions";
 import {PanelHeaderBack} from "@vkontakte/vkui";
@@ -12,7 +12,6 @@ import FormLayoutGroup from "@vkontakte/vkui/dist/components/FormLayoutGroup/For
 import Input from "@vkontakte/vkui/dist/components/Input/Input";
 import Link from "@vkontakte/vkui/dist/components/Link/Link";
 import Icon24GameOutline from '@vkontakte/icons/dist/24/game_outline';
-import {SelectMimicry} from "@vkontakte/vkui";
 import Select from "@vkontakte/vkui/dist/components/Select/Select";
 import {useForm} from "react-hook-form";
 import {postRequestsTextReq} from "../../store/requests/actions";
@@ -20,7 +19,7 @@ import {postRequestsTextReq} from "../../store/requests/actions";
 const AddReq = ({id}) => {
     const dispatch = useDispatch()
     const ui = useSelector(s => s.dynamic_ui)
-    const {register, handleSubmit, watch, errors, getValues} = useForm();
+    const {register, handleSubmit, getValues} = useForm();
 
     const onSubmit = data => {
         dispatch(postRequestsTextReq.saga({...data, game_id: 2}))

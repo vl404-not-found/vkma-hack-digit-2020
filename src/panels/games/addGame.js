@@ -1,7 +1,6 @@
-import React, {setState} from 'react';
-import {Div, ModalCard, ModalPage, ModalRoot, Button, Panel, PanelHeader, Group, Search, FixedLayout, View, ActionSheet, ActionSheetItem} from '@vkontakte/vkui'
-import {TabsItem, Tabs, CellButton, List, SimpleCell, Avatar, FormLayout, Select} from '@vkontakte/vkui'
-import Icon24Filter from '@vkontakte/icons/dist/24/filter';
+import React from 'react';
+import {Button, Panel, PanelHeader, Search, FixedLayout, View} from '@vkontakte/vkui'
+import {TabsItem, Tabs, SimpleCell} from '@vkontakte/vkui'
 import Icon28ArrowLeftOutline from '@vkontakte/icons/dist/28/arrow_left_outline';
 import * as uiActions from '../../store/dynamicui/actions'
 import {useDispatch, useSelector} from "react-redux";
@@ -10,7 +9,7 @@ import Steam from './steamkill.js'
 const GameAdd = ({id}) => {
   const dispatch = useDispatch();
   const ui = useSelector(s => s.dynamic_ui)
-  const linker = useSelector(s => s.dynamic_ui.history[ui.history.length - 1].split("/")[1])
+  // const linker = useSelector(s => s.dynamic_ui.history[ui.history.length - 1].split("/")[1])
   const req = useSelector(s => s.requests)
 
     return (

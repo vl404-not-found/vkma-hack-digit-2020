@@ -1,12 +1,9 @@
 import bridge from "@vkontakte/vk-bridge";
 import {putToStore} from "../utils";
 import * as actions from './actions'
-import {put, select, takeLatest} from "redux-saga/effects";
+import {put, takeLatest} from "redux-saga/effects";
 import {store} from '../index'
 import {error} from 'react-toastify-redux'
-import {ApiBaseURL} from "../../utils/consts";
-import qs from "qs";
-import axios from "axios";
 
 function* subscribeSaga() {
     try {
