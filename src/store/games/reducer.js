@@ -2,7 +2,11 @@ import {createReducer} from '../utils';
 import * as actions from './actions';
 
 const initialState = {
-    all: [],
+    xbox: null,
+    steam: null,
+    ps: null,
+    mobile: null,
+    all: null
 };
 
 export const gamesReducer = createReducer(initialState, {
@@ -10,5 +14,10 @@ export const gamesReducer = createReducer(initialState, {
         return { ...state,
             all: payload
         }
-    }
+    },
+    [actions.getSteamGame.set]: (state, payload) => {
+        return { ...state,
+            steam: payload
+        }
+    },
 });

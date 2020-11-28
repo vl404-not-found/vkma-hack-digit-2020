@@ -6,6 +6,7 @@ const initialState = {
     com: [],
     your: [],
     my_team: [],
+    games: [],
 };
 
 export const reqReducer = createReducer(initialState, {

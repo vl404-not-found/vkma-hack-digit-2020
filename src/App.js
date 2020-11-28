@@ -26,6 +26,7 @@ import Set from "./panels/setting/index";
 import DopSet from "./panels/setting/dobsetting";
 import AddGame from "./panels/games/addGame";
 import Link from "./panels/games/linkAccount";
+import PageGame from "./panels/games/pageGame";
 import SelectMarketPlace from "./panels/selection_players";
 import Team from "./panels/team_main";
 import TeamAdd from "./panels/team_main/AddTeam";
@@ -38,23 +39,21 @@ import PageUser from "./panels/page_user";
 const App = () => {
 
     const [ui, SetUi] = useState(store.getState().dynamic_ui)
-
     function handleActions() {
         SetUi(store.getState().dynamic_ui)
     }
-
     store.subscribe(handleActions)
 
     const baseModal = (
         <ModalRoot activeModal={ui.modal}>
-            <ModalPage id="select"
+            <ModalPage id="filter_main"
                        header={<ModalPageHeader left={<Icon24Cancel/>} right={<>Очистить</>}>
                            Фильтры
                        </ModalPageHeader>}>
                 <FormLayout>
                     <Select top="Сортировка">
                         <option value="rel" selected>По релевантности</option>
-                        <option value="f">Женский</option>
+                        <option value="f">По </option>
                     </Select>
                 </FormLayout>
             </ModalPage>
@@ -124,9 +123,13 @@ const App = () => {
                     >
                         <AddGame id='addGame'/>
                     </View>
-                    <View activePanel="addGame/playstation" id="addGame/playstation">
-                        <Link id='addGame/playstation'/>
+                    <View activePanel="steam" id="steam">
+                        <Link id='steam'/>
                     </View>
+                    <View activePanel="pageGame" id="pageGame">
+                        <PageGame id='pageGame'/>
+                    </View>
+
                     {/*Тут обозначаете условный "роут"*/}
                     <View activePanel="page_team" id="page_team">
                         <PageTeam id='page_team'/>
