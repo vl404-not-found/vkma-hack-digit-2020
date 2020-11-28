@@ -46,14 +46,14 @@ const App = () => {
 
     const baseModal = (
         <ModalRoot activeModal={ui.modal}>
-            <ModalPage id="select"
+            <ModalPage id="filter_main"
                        header={<ModalPageHeader left={<Icon24Cancel/>} right={<>Очистить</>}>
                            Фильтры
                        </ModalPageHeader>}>
                 <FormLayout>
                     <Select top="Сортировка">
                         <option value="rel" selected>По релевантности</option>
-                        <option value="f">Женский</option>
+                        <option value="f">По </option>
                     </Select>
                 </FormLayout>
             </ModalPage>
