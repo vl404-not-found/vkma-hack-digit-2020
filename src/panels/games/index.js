@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     Div,
     ModalCard,
@@ -14,13 +14,15 @@ import {
 } from '@vkontakte/vkui'
 import {List, SimpleCell, Avatar, FormLayout, Select} from '@vkontakte/vkui'
 import Icon24Filter from '@vkontakte/icons/dist/24/filter';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import * as uiActions from '../../store/dynamicui/actions'
-
+import {getAllGames} from '../../store/games/actions'
 
 const Game = ({id}) => {
     const [modal, setModal] = useState(null);
     const dispatch = useDispatch();
+    const Games = useSelector(s => s.games.all);
+    useEffect(()=>{dispatch(getAllGames.saga())},[dispatch])
 
     const openBase = (
         <ModalRoot activeModal={modal}>
@@ -79,12 +81,15 @@ const Game = ({id}) => {
                 }/>
                 <Group separator="hide">
                     <List>
+                      {Array.isArray(Games) ? Games.map(game=>(
                         <SimpleCell
-                            before={<Avatar src={('/ex/avatar.jpg')} size={48}/>}
+                            onClick={() => dispatch(uiActions.push_route('pageGame'))}
+                            before={<Avatar src={game.image} size={48}/>}
                             text="Игра"
                         >
-                            Название игры
-                        </SimpleCell>
+                            {game.name}
+                        </SimpleCell>)) : ''
+                       }
                     </List>
                 </Group>
                 <FixedLayout vertical="bottom">
