@@ -1,14 +1,13 @@
 import React from  'react'
-import {Button, Div, PanelHeader, Panel, SimpleCell, List, Avatar, Card, CardGrid, Cell, Group, Subhead, Title, Counter} from "@vkontakte/vkui";
-import {Icon28MessageOutline} from "@vkontakte/icons";
+import {Button, Div, PanelHeader, Panel, SimpleCell, Title} from "@vkontakte/vkui";
 import * as uiActions from '../../store/dynamicui/actions'
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import Icon28ArrowLeftOutline from '@vkontakte/icons/dist/28/arrow_left_outline';
 import Icon56UserAddOutline from '@vkontakte/icons/dist/56/user_add_outline';
 
 const Link = ({id}) => {
   const dispatch = useDispatch();
-  const ui = useSelector(s => s.dynamic_ui)
+  // const ui = useSelector(s => s.dynamic_ui)
 
   return(
     <Panel id={id}>

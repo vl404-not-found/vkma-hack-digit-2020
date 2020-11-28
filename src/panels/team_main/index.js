@@ -1,14 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-import {Panel, PanelHeader, Search} from '@vkontakte/vkui'
-import {useDispatch, useSelector} from "react-redux";
+import {Panel, PanelHeader} from '@vkontakte/vkui'
+import {useDispatch} from "react-redux";
 import Button from "@vkontakte/vkui/dist/components/Button/Button";
 import Div from "@vkontakte/vkui/dist/components/Div/Div";
 import * as uiActions from "../../store/dynamicui/actions";
 
 const Team = ({id}) => {
     const dispatch = useDispatch()
-    const ui = useSelector(s => s.dynamic_ui)
+
+    // const ui = useSelector(s => s.dynamic_ui)
 
 
     return (

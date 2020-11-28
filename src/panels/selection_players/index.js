@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import {Panel, PanelHeader, Search} from '@vkontakte/vkui'
 import Icon24NotificationOutline from '@vkontakte/icons/dist/24/notification_outline'
@@ -12,7 +12,7 @@ const SelectMarketPlace = ({id}) => {
     const dispatch = useDispatch()
     const ui = useSelector(s => s.dynamic_ui)
 
-    const [activeTab4] = useState()
+    // const [activeTab4] = useState()
 
     return (
         <Panel id={id}>

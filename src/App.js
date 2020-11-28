@@ -13,7 +13,7 @@ import {
     ModalCard,
     ModalPage,
     ModalPageHeader,
-    ModalRoot,
+    ModalRoot, PopoutWrapper,
     Root,
     ScreenSpinner,
     Select
@@ -31,7 +31,6 @@ import Team from "./panels/team_main";
 import TeamAdd from "./panels/team_main/AddTeam";
 import AddReq from "./panels/my_reqts";
 import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
-import {Div} from "@vkontakte/vkui/dist/es6";
 
 
 const App = () => {
@@ -66,31 +65,32 @@ const App = () => {
     return (
         <Provider store={store}>
             <ToastContainer/>
-            <Root activeView={'epic'} modal={baseModal}>
+            <Root activeView={'epic'} modal={baseModal} popout={ui.isLoaderShow ?
+                <PopoutWrapper hasMask={true}><ScreenSpinner size='large'/></PopoutWrapper> : null}>
                 <Epic id={'epic'} activeStory={ui.history[ui.history.length - 1].split("/")[0]} tabbar={<TabBar/>}>
                     <View activePanel="requests"
                           id={'requests'}
-                          popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    >
                         <Home id='requests'/>
                     </View>
 
                     <View activePanel="selection" id="selection"
-                          popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    >
                         <SelectMarketPlace id='selection'/>
                     </View>
 
                     <View activePanel="commands" id="commands"
-                          popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    >
                         <Team id='commands'/>
                     </View>
 
                     <View activePanel="add_team" id="add_team"
-                          popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    >
                         <TeamAdd id='add_team'/>
                     </View>
 
                     <View activePanel="add_req" id="add_req"
-                          popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    >
                         <AddReq id='add_req'/>
                     </View>
                     {/*(Redux DevTools Dispatcher) если хочешь перейти на конкретный экран -- выполни :
@@ -101,34 +101,32 @@ const App = () => {
                 }
                 ----------------------
                 */}
-                {/*Тут обозначаете условный "роут"*/}
-                <View activePanel="proto/main" id="proto/main"
-                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
-                    <Proto id='proto/main' />
-                </View>
-                <View activePanel="games" id="games"
-                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
-                    <GameCom id='games' />
-                </View>
-                <View activePanel="settings" id="settings"
-                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
-                    <Set id='settings' />
-                </View>
-                <View activePanel="dopsettings" id="dopsettings"
-                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
-                    <DopSet id='dopsettings' />
-                </View>
-                <View activePanel="addGame" id="addGame"
-                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
-                    <AddGame id='addGame' />
-                </View>
-                <View activePanel="addGame/playstation" id="addGame/playstation"
-                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
-                    <Link id='addGame/playstation' />
-                </View>
-{/*Тут обозначаете условный "роут"*/}
+                    {/*Тут обозначаете условный "роут"*/}
                     <View activePanel="proto/main" id="proto/main"
-                          popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    >
+                        <Proto id='proto/main'/>
+                    </View>
+                    <View activePanel="games" id="games"
+                    >
+                        <GameCom id='games'/>
+                    </View>
+                    <View activePanel="settings" id="settings"
+                    >
+                        <Set id='settings'/>
+                    </View>
+                    <View activePanel="dopsettings" id="dopsettings"
+                    >
+                        <DopSet id='dopsettings'/>
+                    </View>
+                    <View activePanel="addGame" id="addGame"
+                    >
+                        <AddGame id='addGame'/>
+                    </View>
+                    <View activePanel="addGame/playstation" id="addGame/playstation">
+                        <Link id='addGame/playstation'/>
+                    </View>
+                    {/*Тут обозначаете условный "роут"*/}
+                    <View activePanel="proto/main" id="proto/main">
                         <Proto id='proto/main'/>
                     </View>
 
