@@ -10,6 +10,7 @@ import * as uiActions from "../../store/dynamicui/actions";
 import {backendReg, getRequestsCom, getRequestsMain, getRequestsYour} from "../../store/requests/actions";
 import {RequestGamers} from "./RequestsGamers";
 
+
 const Home = ({id}) => {
     const dispatch = useDispatch()
     const ui = useSelector(s => s.dynamic_ui)

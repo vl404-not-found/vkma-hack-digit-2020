@@ -14,7 +14,7 @@ const DopSetting = ({id}) => {
           <PanelHeader>
             <SimpleCell
                 before={<Icon28ArrowLeftOutline />}
-                onClick = {() => dispatch(uiActions.push_route('settings/main'))}
+                onClick = {() => dispatch(uiActions.push_route('settings'))}
                 text="Настроки"
               >
               Настройки

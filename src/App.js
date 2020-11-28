@@ -21,6 +21,11 @@ import {
 
 import {TabBar} from "./components/TabBar";
 import Proto from "./panels/proto";
+import GameCom from "./panels/games/index";
+import Set from "./panels/setting/index";
+import DopSet from "./panels/setting/dobsetting";
+import AddGame from "./panels/games/addGame";
+import Link from "./panels/games/linkAccount";
 import SelectMarketPlace from "./panels/selection_players";
 import Team from "./panels/team_main";
 import TeamAdd from "./panels/team_main/AddTeam";
@@ -96,7 +101,32 @@ const App = () => {
                 }
                 ----------------------
                 */}
-                    {/*Тут обозначаете условный "роут"*/}
+                {/*Тут обозначаете условный "роут"*/}
+                <View activePanel="proto/main" id="proto/main"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <Proto id='proto/main' />
+                </View>
+                <View activePanel="games" id="games"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <GameCom id='games' />
+                </View>
+                <View activePanel="settings" id="settings"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <Set id='settings' />
+                </View>
+                <View activePanel="dopsettings" id="dopsettings"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <DopSet id='dopsettings' />
+                </View>
+                <View activePanel="addGame" id="addGame"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <AddGame id='addGame' />
+                </View>
+                <View activePanel="addGame/playstation" id="addGame/playstation"
+                      popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
+                    <Link id='addGame/playstation' />
+                </View>
+{/*Тут обозначаете условный "роут"*/}
                     <View activePanel="proto/main" id="proto/main"
                           popout={ui.isLoaderShow ? <ScreenSpinner size='large'/> : null}>
                         <Proto id='proto/main'/>
@@ -110,4 +140,3 @@ const App = () => {
 }
 
 export default App;
-
