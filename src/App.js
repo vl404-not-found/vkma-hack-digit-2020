@@ -127,6 +127,7 @@ const App = () => {
                     <View activePanel="pageGame" id="pageGame">
                         <PageGame id='pageGame'/>
                     </View>
+
                     {/*Тут обозначаете условный "роут"*/}
                     <View activePanel="proto/main" id="proto/main">
                         <Proto id='proto/main'/>

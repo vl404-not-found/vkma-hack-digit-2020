@@ -5,6 +5,7 @@ const initialState = {
     main: [],
     com: [],
     your: [],
+    games: [],
 };
 
 export const reqReducer = createReducer(initialState, {
@@ -22,5 +23,5 @@ export const reqReducer = createReducer(initialState, {
         return { ...state,
             your: payload
         }
-    }
+    },
 });

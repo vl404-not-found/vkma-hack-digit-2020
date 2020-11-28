@@ -46,7 +46,7 @@ function* postRequestsTextReqSaga ({$payload}) {
           } catch (e) {
               yield put(error('error req'));
           }
-    
+
     }
 function* backendRegSaga ({$payload}) {
     try {
@@ -57,6 +57,8 @@ function* backendRegSaga ({$payload}) {
         yield put(error('error req'));
     }
 }
+
+
 
 
 export const requestSaga = [
