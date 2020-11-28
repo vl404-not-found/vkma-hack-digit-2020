@@ -24,9 +24,10 @@ const Home = ({id}) => {
     }, [dispatch])
 
     useEffect(() => {
-        linker === 'commands' ?
+        linker === 'gamers' ?
             dispatch(getRequestsCom.saga()) :
-            dispatch(getRequestsYour.saga())
+            linker === 'commands' ? dispatch(getRequestsCom.saga()) :
+                dispatch(getRequestsYour.saga())
     }, [linker, dispatch])
 
     return (
@@ -37,7 +38,8 @@ const Home = ({id}) => {
             <FixedLayout vertical="top">
                 <Search icon={
                     <div style={{display: "flex", marginRight: "80%"}}>
-                        <div style={{margin: "7px"}}>
+                        <div style={{margin: "7px"}}
+                             onClick={() => dispatch(uiActions.open_modal('requests/your'))}>
                             <Icon24GameOutline/>
                         </div>
                         <div style={{margin: "7px"}}>
