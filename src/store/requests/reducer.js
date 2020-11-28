@@ -5,6 +5,7 @@ const initialState = {
     main: [],
     com: [],
     your: [],
+    my_team: [],
 };
 
 export const reqReducer = createReducer(initialState, {
@@ -21,6 +22,11 @@ export const reqReducer = createReducer(initialState, {
     [actions.getRequestsYour.set]: (state, payload) => {
         return { ...state,
             your: payload
+        }
+    },
+    [actions.conclusionMyTeam.set]: (state, payload) => {
+        return { ...state,
+            my_team: payload
         }
     }
 });

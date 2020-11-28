@@ -58,6 +58,17 @@ function* backendRegSaga ({$payload}) {
     }
 }
 
+function* conclusionMyTeamSaga ({$payload}) {
+    try {
+        const items = yield select(s => s.dynamic_ui.start_data);
+        const resp = yield request({...items, ...{module: 'CONCLUSION_MY_TEAM'}})
+        console.log(resp)
+        yield putToStore(actions.conclusionMyTeam, resp)
+    } catch (e) {
+        yield put(error('error req'));
+    }
+}
+
 
 export const requestSaga = [
     takeLatest(actions.getRequestsMain.saga, getRequestsSaga),
@@ -65,4 +76,5 @@ export const requestSaga = [
     takeLatest(actions.getRequestsYour.saga, getYourRequestsSaga),
     takeLatest(actions.postRequestsTextReq.saga, postRequestsTextReqSaga),
     takeLatest(actions.backendReg.saga, backendRegSaga),
+    takeLatest(actions.conclusionMyTeam.saga, conclusionMyTeamSaga),
 ]

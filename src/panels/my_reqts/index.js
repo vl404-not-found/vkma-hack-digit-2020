@@ -36,17 +36,17 @@ const AddReq = ({id}) => {
                 <Tabs>
                     <TabsItem
                         onClick={() => {
-                            dispatch(uiActions.push_route('add_req/news'))
+                            dispatch(uiActions.push_route('add_req/find_solo'))
                         }}
-                        selected={ui.history[ui.history.length - 1].split("/")[1] === 'news'}
+                        selected={ui.history[ui.history.length - 1].split("/")[1] === 'find_solo'}
                     >
                         Поиск игрока
                     </TabsItem>
                     <TabsItem
                         onClick={() => {
-                            dispatch(uiActions.push_route('add_req/recomendations'))
+                            dispatch(uiActions.push_route('add_req/find_team'))
                         }}
-                        selected={ui.history[ui.history.length - 1].split("/")[1] === 'recomendations'}
+                        selected={ui.history[ui.history.length - 1].split("/")[1] === 'find_team'}
                     >
                         Поиск в команду
                     </TabsItem>
@@ -54,7 +54,7 @@ const AddReq = ({id}) => {
             </FixedLayout>
 
             <View style={{marginTop: '30px'}} activePanel={ui.history[ui.history.length - 1].split("/")[1]}>
-                <Panel id={"news"}>
+                <Panel id={"find_solo"}>
                     <Div>
                         <FormLayout onSubmit={handleSubmit(onSubmit)}>
                             <FormLayoutGroup top="Текст заявки">
@@ -76,6 +76,7 @@ const AddReq = ({id}) => {
                         <FormLayout>
                             <Checkbox>Я прочитал и согласен с <Link>правилами</Link></Checkbox>
                         </FormLayout>
+
                         {/*тут твой уникальный код*/}
                         <Div style={{marginTop: 340}}>
                             <Button size="xl" stretched
@@ -85,7 +86,7 @@ const AddReq = ({id}) => {
                         </Div>
                     </Div>
                 </Panel>
-                <Panel id={"recomendations"}>
+                <Panel id={"find_team"}>
                     <Div>
                         <Div>
                             <FormLayout>
@@ -111,6 +112,7 @@ const AddReq = ({id}) => {
                             <FormLayout>
                                 <Checkbox>Я прочитал и согласен с <Link>правилами</Link></Checkbox>
                             </FormLayout>
+
                             {/*тут твой уникальный код*/}
                             <Div style={{marginTop: 230}}>
                                 <Button size="xl" type={"submit"} stretched style={{marginRight: 8}}
