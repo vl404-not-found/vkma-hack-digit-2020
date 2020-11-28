@@ -33,6 +33,7 @@
     "qs": "^6.9.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-hook-form": "^6.11.5",
     "react-redux": "^7.2.2",
     "react-toastify": "^6.1.0",
     "react-toastify-redux": "^1.0.0-rc.2",
