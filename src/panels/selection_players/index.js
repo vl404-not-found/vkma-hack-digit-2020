@@ -56,9 +56,6 @@ const SelectMarketPlace = ({id}) => {
                 selected={ui.history[ui.history.length - 1].split("/")[1] === 'Телефон'}> Телефон
             </TabsItem>
 
-            <Div style={{ marginTop: 0 }}>
-                <Button size="xl" stretched style={{ marginRight: 8 }} onClick={() => dispatch(uiActions.push_route('page_user'))}>page test</Button>
-            </Div>
             {/*тут твой уникальный код*/}
 
             </Tabs>
