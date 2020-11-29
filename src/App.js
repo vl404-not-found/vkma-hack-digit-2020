@@ -33,6 +33,7 @@ import Link from "./panels/games/linkAccount";
 import PageGame from "./panels/games/pageGame";
 import SelectMarketPlace from "./panels/selection_players";
 import SelPeople from "./panels/selection_players/selPeople";
+import People from "./panels/selection_players/people";
 import Team from "./panels/team_main";
 import TeamAdd from "./panels/team_main/AddTeam";
 import AddReq from "./panels/my_reqts";
@@ -172,6 +173,9 @@ const App = () => {
                     </View>
                     <View activePanel="selpeople" id="selpeople">
                         <SelPeople id='selpeople'/>
+                    </View>
+                    <View activePanel="people" id="people">
+                        <People id='people'/>
                     </View>
 
                     {/*Тут обозначаете условный "роут"*/}

@@ -19,21 +19,24 @@ const SelPeo = ({req}) => {
     </PanelHeader>
     <Group separator="hide">
       <RichCell
+        caption="Откликнулся на анкету"
        before={<Avatar size={48} src={('/ex/avatar.jpg')}/>}
-       caption="Откликнулся на анкету"
-     >
+       onClick = {() => dispatch(uiActions.push_route('people'))}>
+
        Михаил Лихачев
      </RichCell>
      <RichCell
        before={<Avatar size={48} src={('/ex/avatar.jpg')}/>}
        caption="Откликнулась на анкету"
-     >
+       onClick = {() => dispatch(uiActions.push_route('people'))}>
+
        Тимофей Чаптыков
      </RichCell>
      <RichCell
        before={<Avatar size={48} src={('/ex/avatar.jpg')}/>}
        caption="Хочет поиграть в CS GO"
-     >
+       onClick = {() => dispatch(uiActions.push_route('people'))}>
+
        Тимофей Чаптыков
      </RichCell>
     </Group>
