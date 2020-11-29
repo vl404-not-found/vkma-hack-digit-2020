@@ -14,13 +14,13 @@ import {List, SimpleCell, Avatar} from '@vkontakte/vkui'
 import Icon24Filter from '@vkontakte/icons/dist/24/filter';
 import {useDispatch, useSelector} from "react-redux";
 import * as uiActions from '../../store/dynamicui/actions'
-import {getSteamGameArray} from '../../store/games/actions'
+import {getSteamGame} from '../../store/games/actions'
 
 const Game = ({id}) => {
     const [modal] = useState(null);
     const dispatch = useDispatch();
-    const Games = useSelector(s => s.games.all);
-    useEffect(()=>{dispatch(getSteamGameArray.saga())},[dispatch])
+    const Games = useSelector(s => s.games);
+    useEffect(()=>{dispatch(getSteamGame.saga())},[dispatch])
 
     const openBase = (
         <ModalRoot activeModal={modal}>
@@ -47,7 +47,7 @@ const Game = ({id}) => {
                 }/>
                 <Group separator="hide">
                     <List>
-                      {Array.isArray(Games) ? Games.map(game=>(
+                      {Array.isArray(Games) ? Games.map(game => (
                         <SimpleCell
                             onClick={() => dispatch(uiActions.push_route('pageGame'))}
                             before={<Avatar src={game.image} size={48}/>}
