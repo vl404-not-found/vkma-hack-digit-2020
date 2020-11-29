@@ -42,6 +42,9 @@ import PageTeam from "./panels/page_team";
 import PageUser from "./panels/page_user";
 import * as uiActions from './store/dynamicui/actions'
 import {useDispatch} from 'react-redux'
+import EditTeamPage from "./panels/page_team/edit_team_req";
+import ListTeamReq from "./panels/page_team/list_team_req";
+import ListTeammates from "./panels/page_team/edit_teammates";
 
 const App = () => {
     const dispatch = useDispatch()
@@ -183,7 +186,17 @@ const App = () => {
                     <View activePanel="page_user" id="page_user">
                         <PageUser id='page_user'/>
                     </View>
+                    <View activePanel="edit_page_team" id="edit_page_team">
+                        <EditTeamPage id='edit_page_team'/>
+                    </View>
 
+                    <View activePanel="list_team_req" id="list_team_req">
+                        <ListTeamReq id='list_team_req'/>
+                    </View>
+
+                    <View activePanel="list_teammates" id="list_teammates">
+                        <ListTeammates id='list_teammates'/>
+                    </View>
                     <View activePanel="proto/main" id="proto/main">
                         <Proto id='proto/main'/>
                     </View>

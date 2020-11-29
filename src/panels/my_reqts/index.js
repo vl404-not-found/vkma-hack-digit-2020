@@ -82,7 +82,7 @@ const AddReq = ({id}) => {
                             <Button size="xl" stretched
                                     style={{marginRight: 8}} type={'submit'}
                                     onClick={()=> onSubmit(getValues()) }
-                            >Добавить команду</Button>
+                            >Добавить заявку</Button>
                         </Div>
                     </Div>
                 </Panel>
@@ -116,7 +116,7 @@ const AddReq = ({id}) => {
                             {/*тут твой уникальный код*/}
                             <Div style={{marginTop: 230}}>
                                 <Button size="xl" type={"submit"} stretched style={{marginRight: 8}}
-                                        onClick={() => dispatch(uiActions.back('add_team'))}>Добавить команду</Button>
+                                        onClick={() => dispatch(uiActions.back('add_team'))}>Добавить заявку</Button>
                             </Div>
                         </Div>
                     </Div>
