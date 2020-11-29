@@ -20,20 +20,21 @@ const SelPeo = ({req}) => {
     <Group separator="hide">
       <RichCell
         caption="Откликнулся на анкету"
-       before={<Avatar size={48} src={('/ex/avatar.jpg')}/>}>
 
-       Михаил Лихачев
+       before={<Avatar size={48} src={('/ex/V1vkl2V6R5g.jpg')}/>}>
+
+       Влад Шкердин
      </RichCell>
      <RichCell
-       before={<Avatar size={48} src={('/ex/avatar.jpg')}/>}
+       before={<Avatar size={48} src={('/ex/0vh5x8ZgtL0.jpg')}/>}
        caption="Откликнулась на анкету" >
-       Тимофей Чаптыков
+       Алексей Тимошен
      </RichCell>
      <RichCell
        caption="Хочет поиграть в CS GO"
 
-       before={<Avatar size={48} src={('/ex/avatar.jpg')}/>}>
-       Тимофей Чаптыков
+       before={<Avatar size={48} src={('/ex/кирюша.jpg')}/>}>
+       Кирилл Миновский
      </RichCell>
     </Group>
     </Panel>
