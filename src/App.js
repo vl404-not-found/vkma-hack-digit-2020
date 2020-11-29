@@ -46,11 +46,13 @@ import EditTeamPage from "./panels/page_team/edit_team_req";
 import ListTeamReq from "./panels/page_team/list_team_req";
 import ListTeammates from "./panels/page_team/edit_teammates";
 import {getYourAdminTeam} from "./store/requests/actions";
+import {getSelectedGames} from "./store/games/actions";
 
 const App = () => {
     const dispatch = useDispatch()
     const [ui, SetUi] = useState(store.getState().dynamic_ui)
     const adm_teams = useSelector(s => s.requests.my_adm_team)
+    const your_games = useSelector(s => s.games.your)
 
     function handleActions() {
         SetUi(store.getState().dynamic_ui)
@@ -61,6 +63,7 @@ const App = () => {
 
     useEffect(() => {
         dispatch(getYourAdminTeam.saga())
+        dispatch(getSelectedGames.saga())
     }, [dispatch])
 
     const baseModal = (
@@ -131,6 +134,28 @@ const App = () => {
                         </Radio>
                     </>
                 )) : 'нет команд'}
+                {/*get_admin_teams*/}
+            </ModalPage>
+            <ModalPage id={'select_game'}
+                       dynamicContentHeight={true}
+                       settlingHeight={30}
+                       header={<ModalPageHeader left={<Icon24Cancel
+                           onClick={() => dispatch(uiActions.open_modal(null))}/>}>
+                           Выбор игры
+                       </ModalPageHeader>}>
+                <Search/>
+                {Array.isArray(your_games) ? your_games.map((item) => (
+                    <>
+                        <>
+                            {/*<Cell onClick={() => dispatch(uiActions.setSelectedGame(item.game_id))}*/}
+                            <Cell onClick={() => dispatch(uiActions.setSelectedGame(item.game_id))}
+                                selectable={true}
+                                before={<Avatar size={40} src={item.image}/>} >
+                                {item.name}
+                            </Cell>
+                        </>
+                    </>
+                )) : 'нет игр!'}
                 {/*get_admin_teams*/}
             </ModalPage>
             <ModalPage id="selectgames">

@@ -7,6 +7,7 @@ const initialState = {
     ps: null,
     mobile: null,
     all: null,
+    your: null,
     addgame: null,
     stat: {
         "playtime_forever": null,
@@ -48,5 +49,5 @@ export const gamesReducer = createReducer(initialState, {
             ...state,
             your: payload
         }
-    },
+    }
 });

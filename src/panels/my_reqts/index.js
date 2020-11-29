@@ -22,7 +22,7 @@ const AddReq = ({id}) => {
     const {register, handleSubmit, getValues} = useForm();
 
     const onSubmit = data => {
-        dispatch(postRequestsTextReq.saga({...data, game_id: 2}))
+        dispatch(postRequestsTextReq.saga({...data, game_id: ui.selected_game}))
     }
 
     return (
@@ -66,19 +66,19 @@ const AddReq = ({id}) => {
 
                         <FormLayout>
                             <FormLayoutGroup top="Игра">
-                                <Input type="text" defaultValue="" placeholder="Выберите игру" disabled
+                                <Input type="text" defaultValue={ui.selected_game} placeholder="Выберите игру"
                                        name="game_id"
-                                       getRef={register({required: false})}
-                                       right={<Icon24GameOutline/>}/>
+                                       onClick={() => dispatch(uiActions.open_modal('select_game'))}
+                                right={<Icon24GameOutline/>}/>
                             </FormLayoutGroup>
                         </FormLayout>
 
                         <FormLayout>
-                            <Checkbox>Я прочитал и согласен с <Link>правилами</Link></Checkbox>
+                            <Checkbox>Я прочитал и согласен {ui.selected_game} с <Link>правилами</Link></Checkbox>
                         </FormLayout>
 
                         {/*тут твой уникальный код*/}
-                        <Div style={{marginTop: 340}}>
+                        <Div style={{marginTop: 100}}>
                             <Button size="xl" stretched
                                     style={{marginRight: 8}} type={'submit'}
                                     onClick={()=> onSubmit(getValues()) }

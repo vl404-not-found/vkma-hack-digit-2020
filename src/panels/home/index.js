@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import Panel from '@vkontakte/vkui/dist/components/Panel/Panel';
 import PanelHeader from '@vkontakte/vkui/dist/components/PanelHeader/PanelHeader'
-import {Div, FixedLayout, Search, Tabs, TabsItem, View, Button} from "@vkontakte/vkui";
+import {Div, FixedLayout, Search, Tabs, TabsItem, View, Button, ModalPageHeader} from "@vkontakte/vkui";
 import {Icon24GameOutline} from "@vkontakte/icons";
 import Icon24Filter from '@vkontakte/icons/dist/24/filter';
 import {useDispatch, useSelector} from "react-redux";
@@ -10,6 +10,7 @@ import * as uiActions from "../../store/dynamicui/actions";
 import {backendReg, getRequestsCom, getRequestsMain, getRequestsYour} from "../../store/requests/actions";
 import {RequestGamers} from "./RequestsGamers";
 import {RequestTeam} from "./RequestsTeam";
+import Icon24Cancel from "@vkontakte/icons/dist/24/cancel";
 
 
 const Home = ({id}) => {
@@ -40,7 +41,8 @@ const Home = ({id}) => {
                 <Search icon={
                     <div style={{display: "flex", marginRight: "80%"}}>
                         <div style={{margin: "7px"}}>
-                            <Icon24GameOutline/>
+                            <Icon24GameOutline
+                                onClick={() => dispatch(uiActions.open_modal('select_game'))}/>
                         </div>
                         <div style={{margin: "7px"}}
                              onClick={() => dispatch(uiActions.open_modal('filter_main'))}>
