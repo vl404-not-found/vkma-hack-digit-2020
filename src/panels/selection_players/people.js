@@ -12,7 +12,7 @@ import * as gameActions from "../../store/games/actions";
 const People = ({id}) => {
     const dispatch = useDispatch()
     const ui = useSelector(s => s.dynamic_ui)
-  const stats = useSelector(s => s.games)
+  const stats = useSelector(s => s.games.stat)
   useEffect(()=>{dispatch(gameActions.getStatCsGo.saga())},[dispatch])
   console.log(stats)
 
@@ -54,13 +54,12 @@ const People = ({id}) => {
       </Group>
       <Group header={<Header mode="secondary">Статистика</Header>}>
 
-            <Cell  indicator="2 часа">{stats.kdr}</Cell>
-            <Cell  indicator="2 часа">В игре за 2 недели</Cell>
-            <Cell  indicator="2.34">У/С</Cell>
-            <Cell  indicator="22.1%">Точность</Cell>
-            <Cell  indicator="22.36%">В голову</Cell>
-            <Cell  indicator="21%">УMVP за матчС</Cell>
-            <Cell  indicator="10%">Удачных пистолетных раудов</Cell>
+            <Cell indicator={stats.playtime_forever + 'ч'}>В игре за все время</Cell>
+            <Cell  indicator={stats.kdr}>У/С</Cell>
+            <Cell  indicator={stats.accuracy*100 + '%'}>Точность</Cell>
+            <Cell  indicator={stats.headshot*100 + '%'}>В голову</Cell>
+            <Cell  indicator={stats.count_mvp_for_match}>УMVP за матч</Cell>
+            <Cell  indicator={stats.wins_pistolround*100 + '%'}>Удачных пистолетных раудов</Cell>
 
 
 

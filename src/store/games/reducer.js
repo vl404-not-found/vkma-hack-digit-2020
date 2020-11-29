@@ -8,7 +8,7 @@ const initialState = {
     mobile: null,
     all: null,
     addgame: null,
-    stat: null
+    stat: {"playtime_forever":null,"kdr":null,"accuracy":null,"headshot":null,"count_mvp_for_match":null,"wins_pistolround":null}
 };
 
 export const gamesReducer = createReducer(initialState, {
