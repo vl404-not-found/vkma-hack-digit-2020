@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {
 
 
@@ -16,12 +16,16 @@ import {
 } from '@vkontakte/vkui'
 import Icon28ArrowLeftOutline from '@vkontakte/icons/dist/28/arrow_left_outline';
 import * as uiActions from '../../store/dynamicui/actions'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {getStatCsGo} from '../../store/games/actions'
+import * as gameActions from "../../store/games/actions";
+
 
 
 const PageGame = ({id}) =>{
   const dispatch = useDispatch();
-
+  const stats = useSelector(s => s.games.stat)
+  useEffect(()=>{dispatch(gameActions.getStatCsGo.saga())},[dispatch])
   return(
     <Panel>
     <PanelHeader>
@@ -48,13 +52,13 @@ const PageGame = ({id}) =>{
     </Group>
         <Group header={<Header mode="secondary">Статистика</Header>}>
              <List>
-               <Cell expandable indicator="4 часа">Всего в игре</Cell>
-               <Cell expandable indicator="2 часа">В игре за 2 недели</Cell>
-               <Cell expandable indicator="2.34">У/С</Cell>
-               <Cell expandable indicator="22.1%">Точность</Cell>
-               <Cell expandable indicator="22.36%">В голову</Cell>
-               <Cell expandable indicator="21%">УMVP за матчС</Cell>
-               <Cell expandable indicator="10%">Удачных пистолетных раудовС</Cell>
+               <Cell indicator={stats.playtime_forever + 'ч'}>В игре за все время</Cell>
+               <Cell  indicator={stats.kdr}>У/С</Cell>
+               <Cell  indicator={stats.accuracy*100 + '%'}>Точность</Cell>
+               <Cell  indicator={stats.headshot*100 + '%'}>В голову</Cell>
+               <Cell  indicator={stats.count_mvp_for_match}>MVP за матч</Cell>
+               <Cell  indicator={stats.wins_pistolround*100 + '%'}>Удачных пистолетных раундов</Cell>
+
              </List>
         </Group>
         <FixedLayout vertical="bottom">

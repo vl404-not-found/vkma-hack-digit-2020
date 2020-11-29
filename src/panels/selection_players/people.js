@@ -58,8 +58,8 @@ const People = ({id}) => {
             <Cell  indicator={stats.kdr}>У/С</Cell>
             <Cell  indicator={stats.accuracy*100 + '%'}>Точность</Cell>
             <Cell  indicator={stats.headshot*100 + '%'}>В голову</Cell>
-            <Cell  indicator={stats.count_mvp_for_match}>УMVP за матч</Cell>
-            <Cell  indicator={stats.wins_pistolround*100 + '%'}>Удачных пистолетных раудов</Cell>
+            <Cell  indicator={stats.count_mvp_for_match}>MVP за матч</Cell>
+            <Cell  indicator={stats.wins_pistolround*100 + '%'}>Удачных пистолетных раундов</Cell>
 
 
 
