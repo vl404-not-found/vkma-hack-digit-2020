@@ -3,6 +3,7 @@ import {request} from "../utils/axios";
 import {putToStore} from "../utils";
 import * as actions from "./actions";
 import {error} from "react-toastify-redux";
+import {push_route} from '../dynamicui/actions'
 
 function* getAllGamesSaga ({$payload}) {
     try {
@@ -24,10 +25,15 @@ function* getSteamGameSaga ({$payload}) {
         yield put(error('error req'));
     }
 }
-function* getSteamGameArraySaga ({$payload}) {
+function* postSteamGameArraySaga ({$payload}) {
+    const items = yield select(s => s.dynamic_ui.start_data);
+    yield put({type: push_route, $payload: 'games/main'})
+
     try {
-        const items = yield select(s => s.dynamic_ui.start_data);
-        const resp = yield request({...items, ...{module: 'add_user_games'}})
+
+        const resp = yield request({...items, ...{module: 'add_user_games'}, ...{game_ids:$payload.map((i,index)=> {
+            return i ? `${index},` : ''
+                }).join('')}})
         yield putToStore(actions.getSteamGameArray, resp)
         console.log(resp)
     } catch (e) {
@@ -44,11 +50,22 @@ function* getStatCsGoSaga ({$payload}) {
         yield put(error('error req'));
     }
 }
+
+function* getSelectedGamesSaga ({$payload}) {
+    try {
+        const items = yield select(s => s.dynamic_ui.start_data);
+        const resp = yield request({...items, ...{module: 'get_select_games'}})
+        console.log(resp)
+        yield putToStore(actions.getSelectedGames, resp)
+    } catch (e) {
+        yield put(error('error req'));
+    }
+}
+
 export const gamesSaga = [
     takeLatest(actions.getAllGames.saga, getAllGamesSaga),
     takeLatest(actions.getSteamGame.saga, getSteamGameSaga),
-    takeLatest(actions.getSteamGameArray.saga, getSteamGameArraySaga),
-    takeLatest(actions.getStatCsGo.saga, getStatCsGoSaga)
-
-
+    takeLatest(actions.getSteamGameArray.saga, postSteamGameArraySaga),
+    takeLatest(actions.getStatCsGo.saga, getStatCsGoSaga),
+    takeLatest(actions.getSelectedGames.saga, getSelectedGamesSaga)
 ]
