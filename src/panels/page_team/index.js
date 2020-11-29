@@ -17,6 +17,9 @@ import Group from "@vkontakte/vkui/dist/components/Group/Group";
 import FormLayoutGroup from "@vkontakte/vkui/dist/components/FormLayoutGroup/FormLayoutGroup";
 import Input from "@vkontakte/vkui/dist/components/Input/Input";
 import FormLayout from "@vkontakte/vkui/dist/components/FormLayout/FormLayout";
+import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
+import Icon24PenOutline from "@vkontakte/icons/dist/24/pen_outline";
+import Icon28DeleteOutlineAndroid from "@vkontakte/icons/dist/28/delete_outline_android";
 
 
 const PageUser = ({id}) => {
@@ -33,7 +36,14 @@ const PageUser = ({id}) => {
                 Команды
             </PanelHeader>
 
-            <SimpleCell before={<Avatar size={72} src={data.avatar_url ? data.avatar_url : null} />} description="Рейтинг 4.8"><Text weight="semibold">{data.name}</Text></SimpleCell>
+            <SimpleCell
+                after={
+                    <React.Fragment>
+                        <PanelHeaderButton><Icon24PenOutline onClick={() => dispatch(uiActions.push_route(`edit_page_team/${id_req}`))} /></PanelHeaderButton>
+                        <PanelHeaderButton><Icon28DeleteOutlineAndroid /></PanelHeaderButton>
+                    </React.Fragment>} description="Рейтинг 4.8" before={ <Avatar size={72} src={data.avatar_url ? data.avatar_url : null}/> }>
+                <Text
+                    weight="semibold">{data.name}</Text></SimpleCell>
             {/*тут твой уникальный код*/}
             <Div style={{display: 'flex'}}>
                 <Button size="l" stretched style={{ marginRight: 8 }}>Написать</Button>
@@ -57,7 +67,7 @@ const PageUser = ({id}) => {
             </MiniInfoCell>
 
             <div>
-                <Header indicator={2} aside={<text style={{color: "#3F8AE0" }}>Показать все</text>} style={{weight:"medium", color:"red"}}>
+                <Header indicator={2} aside={<text style={{color: "#3F8AE0" }} onClick={() => dispatch(uiActions.push_route(`list_teammates`))}>Показать все</text>} style={{weight:"medium", color:"red"}}>
                     УЧАСТНИКИ
                 </Header>
             <Group separator="hide">
@@ -74,7 +84,7 @@ const PageUser = ({id}) => {
 
             <Separator style={{marginTop: 24}}/>
             <div>
-                <Header indicator={3} aside={<text style={{color: "#3F8AE0" }}>Показать все</text>} style={{weight:"medium", color:"red"}}>
+                <Header indicator={3} aside={<text style={{color: "#3F8AE0" }} onClick={() => dispatch(uiActions.push_route(`list_team_req`))}>Показать все</text>} style={{weight:"medium", color:"red"}}>
                     ЗАЯВКИ
                 </Header>
 
