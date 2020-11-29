@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 
-import {Panel, PanelHeader} from '@vkontakte/vkui'
+import {Panel, PanelHeader, PanelHeaderBack} from '@vkontakte/vkui'
 import {useDispatch, useSelector} from "react-redux";
 import Button from "@vkontakte/vkui/dist/components/Button/Button";
 import Div from "@vkontakte/vkui/dist/components/Div/Div";
@@ -22,7 +22,8 @@ const ListTeammates = ({id}) => {
 
     return (
         <Panel id={id}>
-            <PanelHeader>
+            <PanelHeader
+                left={<PanelHeaderBack onClick={() => dispatch(uiActions.back('add_team'))} />}>
                 Команды
             </PanelHeader>
 
