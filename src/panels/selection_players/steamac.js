@@ -7,7 +7,6 @@ const SteamAc = ({req}) => {
     <Group separator="hide">
       <List>
         <Cell
-            selectable
             before={<Avatar src={req.image} size={48}/>}
             text="Игра"
           description={"Сыграно: " + req.playtime + " ч."}
