@@ -5,7 +5,7 @@ import * as actions from "./actions";
 import {error} from "react-toastify-redux";
 
 
-function* getRequestsSaga ({$payload}) {
+function* getRequestsSaga({$payload}) {
     try {
         const items = yield select(s => s.dynamic_ui.start_data);
         const resp = yield request({...items, ...{module: 'get_all_solo_request'}})
@@ -15,7 +15,8 @@ function* getRequestsSaga ({$payload}) {
         yield put(error('error req'));
     }
 }
-function* getComRequestsSaga ({$payload}) {
+
+function* getComRequestsSaga({$payload}) {
     try {
         const items = yield select(s => s.dynamic_ui.start_data);
         const resp = yield request({...items, ...{module: 'get_all_team_request'}})
@@ -26,7 +27,7 @@ function* getComRequestsSaga ({$payload}) {
     }
 }
 
-function* getYourRequestsSaga ({$payload}) {
+function* getYourRequestsSaga({$payload}) {
     try {
         const items = yield select(s => s.dynamic_ui.start_data);
         const resp = yield request({...items, ...{module: 'get_my_request'}})
@@ -37,18 +38,19 @@ function* getYourRequestsSaga ({$payload}) {
     }
 }
 
-function* postRequestsTextReqSaga ({$payload}) {
+function* postRequestsTextReqSaga({$payload}) {
     try {
         const items = yield select(s => s.dynamic_ui.start_data);
         const resp = yield request({...items, ...{module: 'add_request'}, ...$payload})
         console.log(resp)
         yield put(error('Заявка создана!'));
-          } catch (e) {
-              yield put(error('error req'));
-          }
-
+    } catch (e) {
+        yield put(error('error req'));
     }
-function* backendRegSaga ({$payload}) {
+
+}
+
+function* backendRegSaga({$payload}) {
     try {
         const items = yield select(s => s.dynamic_ui.start_data);
         const resp = yield request({...items, ...{module: 'first_auth'}})
@@ -58,7 +60,7 @@ function* backendRegSaga ({$payload}) {
     }
 }
 
-function* conclusionMyTeamSaga ({$payload}) {
+function* conclusionMyTeamSaga({$payload}) {
     try {
         const items = yield select(s => s.dynamic_ui.start_data);
         const resp = yield request({...items, ...{module: 'CONCLUSION_MY_TEAM'}})
@@ -70,7 +72,17 @@ function* conclusionMyTeamSaga ({$payload}) {
 }
 
 
+function* getYourAdminTeamSaga({$payload}) {
+    try {
+        const items = yield select(s => s.dynamic_ui.start_data);
+        const resp = yield request({...items, ...{module: 'get_admin_teams'}, ...$payload})
+        yield putToStore(actions.getYourAdminTeam, resp)
+        console.log('resp', resp)
+    } catch (e) {
+        yield put(error('error req'));
+    }
 
+}
 
 export const requestSaga = [
     takeLatest(actions.getRequestsMain.saga, getRequestsSaga),
@@ -79,4 +91,5 @@ export const requestSaga = [
     takeLatest(actions.postRequestsTextReq.saga, postRequestsTextReqSaga),
     takeLatest(actions.backendReg.saga, backendRegSaga),
     takeLatest(actions.conclusionMyTeam.saga, conclusionMyTeamSaga),
+    takeLatest(actions.getYourAdminTeam.saga, getYourAdminTeamSaga),
 ]

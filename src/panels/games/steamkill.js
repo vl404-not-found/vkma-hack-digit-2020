@@ -14,7 +14,7 @@ const SteamKill = ({reqs}) => {
 
     const onSubmit = (data) => {
         console.log(data)
-        // dispatch(getSteamGameArray.saga({...data}));
+        dispatch(getSteamGameArray.saga(data.array));
         // dispatch(uiActions.push_route('addGame/steam'))
     }
 
@@ -26,13 +26,14 @@ const SteamKill = ({reqs}) => {
 
                         <Checkbox
                             getRef={register({required: false})}
-                            selectable
-                            name={`array[${req.game_id}]`}
-                            before={<Avatar src={req.image} size={48}/>}
-                            text="Игра"
-                            description={"Сыграно: " + req.playtime + " ч."}
-                        >
-                            {req.name}
+                            name={`array[${req.game_id}]`}>
+                            <Cell before={<Avatar src={req.image} size={48}/>}
+                                  text="Игра"
+                                  description={"Сыграно: " + req.playtime + " ч."}>
+
+                                {req.name}
+                            </Cell>
+
                         </Checkbox>
                     )) : ''}
                 </List>

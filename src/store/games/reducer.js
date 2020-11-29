@@ -7,29 +7,47 @@ const initialState = {
     ps: null,
     mobile: null,
     all: null,
+    your: null,
     addgame: null,
-    stat: {"playtime_forever":null,"kdr":null,"accuracy":null,"headshot":null,"count_mvp_for_match":null,"wins_pistolround":null}
+    stat: {
+        "playtime_forever": null,
+        "kdr": null,
+        "accuracy": null,
+        "headshot": null,
+        "count_mvp_for_match": null,
+        "wins_pistolround": null
+    }
 };
 
 export const gamesReducer = createReducer(initialState, {
     [actions.getAllGames.set]: (state, payload) => {
-        return { ...state,
+        return {
+            ...state,
             all: payload
         }
     },
     [actions.getSteamGame.set]: (state, payload) => {
-        return { ...state,
+        return {
+            ...state,
             steam: payload
         }
     },
     [actions.getSteamGameArray.set]: (state, payload) => {
-        return { ...state,
+        return {
+            ...state,
             addgame: payload
         }
     },
     [actions.getStatCsGo.set]: (state, payload) => {
-        return { ...state,
+        return {
+            ...state,
             stat: payload
         }
     },
+    [actions.getSelectedGames.set]: (state, payload) => {
+        return {
+            ...state,
+            your: payload
+        }
+    }
 });

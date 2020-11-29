@@ -29,14 +29,14 @@ const PageUser = ({id}) => {
         <Panel id={id}>
             <PanelHeader
                 left={<PanelHeaderBack onClick={() => dispatch(uiActions.back())}/>}>
-                Заявки
+                Профиль
             </PanelHeader>
 
             <SimpleCell before={<Avatar size={72} src={data.avatar_url} />} description="Рейтинг 4.8"><text weight="semibold">{data.name}</text></SimpleCell>
             {/*тут твой уникальный код*/}
             <Div style={{display: 'flex'}}>
-                <Button size="l" stretched style={{ marginRight: 8 }}>Написать</Button>
-                <Button size="l" stretched style={{ marginRight: 8 }}>Перейти на ст...</Button>
+                <Button size="l" stretched style={{ marginRight: 8 }} href={`https://vk.me/${data.vk_id}`} target={"_blank"}>Написать</Button>
+                <Button size="l" stretched style={{ marginRight: 8 }} href={`https://vk.com/id${data.vk_id}`} target={"_blank"}>Профиль ВК</Button>
             </Div>
 
             <Separator style={{marginTop: 20}}/>
