@@ -45,9 +45,9 @@ const People = ({id}) => {
             <Card size="l" mode="outline">
               <RichCell
               style={{marginTop:"20px"}}
-                caption="Возраст: 21; Микрофон: есть"
-               before={<Avatar size={72} src={('/ex/avatar.jpg')}/>}>
-               Михаил Лихачев
+                caption="Возраст: 24; Микрофон: есть"
+               before={<Avatar size={72} src={('/ex/кирюша.jpg')}/>}>
+               Кирилл Миновский
                </RichCell>
             </Card>
           </CardGrid>
