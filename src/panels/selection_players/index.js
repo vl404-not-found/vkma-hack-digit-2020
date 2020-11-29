@@ -64,7 +64,7 @@ const SelectMarketPlace = ({id}) => {
             <View  activePanel={ui.history[ui.history.length - 1].split("/")[1]}>
                 <Panel id={"steam"}>
                     {Array.isArray(games.steam) ? games.steam.map(s => (
-                        <Steam req={s}/>
+                        <Steam req={s} />
                     )) : ''}
                 </Panel>
                 <Panel id={"playstation"}>

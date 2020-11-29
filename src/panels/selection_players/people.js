@@ -23,7 +23,7 @@ const People = ({id}) => {
           text="Настроки"
           level="2" weight="semibold"
           left={<Icon28ArrowLeftOutline />}
-          onClick = {() => dispatch(uiActions.push_route('selpeople'))}>
+          onClick = {() => dispatch(uiActions.push_route('selection/steeam'))}>
             Подбор
         </PanelHeader>
         <Group>
@@ -31,7 +31,7 @@ const People = ({id}) => {
           <Card size="l" mode="shadow">
             <List style={{ paddingTop:"19px", paddingBottom:"19px", paddingLeft:"13px"}}>
                 <Cell
-                    before={<Avatar  size={48}/>}
+                    before={<Avatar src={("/ex/1.jpg")} size={48}/>}
                     text="Игра"
                      >
                   Counter-Strike Global Offensive
