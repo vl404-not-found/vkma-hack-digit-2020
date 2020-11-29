@@ -23,7 +23,7 @@ const People = ({id}) => {
           text="Настроки"
           level="2" weight="semibold"
           left={<Icon28ArrowLeftOutline />}
-          onClick = {() => dispatch(uiActions.push_route('selection/steeam'))}>
+          onClick = {() => dispatch(uiActions.push_route('selection/steam'))}>
             Подбор
         </PanelHeader>
         <Group>
