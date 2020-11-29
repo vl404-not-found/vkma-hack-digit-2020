@@ -23,7 +23,7 @@ const People = ({id}) => {
           text="Настроки"
           level="2" weight="semibold"
           left={<Icon28ArrowLeftOutline />}
-          onClick = {() => dispatch(uiActions.push_route('selpeople'))}>
+          onClick = {() => dispatch(uiActions.push_route('selection/steam'))}>
             Подбор
         </PanelHeader>
         <Group>
@@ -31,7 +31,7 @@ const People = ({id}) => {
           <Card size="l" mode="shadow">
             <List style={{ paddingTop:"19px", paddingBottom:"19px", paddingLeft:"13px"}}>
                 <Cell
-                    before={<Avatar  size={48}/>}
+                    before={<Avatar src={("/ex/1.jpg")} size={48}/>}
                     text="Игра"
                      >
                   Counter-Strike Global Offensive
@@ -45,9 +45,9 @@ const People = ({id}) => {
             <Card size="l" mode="outline">
               <RichCell
               style={{marginTop:"20px"}}
-                caption="Возраст: 21; Микрофон: есть"
-               before={<Avatar size={72} src={('/ex/avatar.jpg')}/>}>
-               Михаил Лихачев
+                caption="Возраст: 24; Микрофон: есть"
+               before={<Avatar size={72} src={('/ex/кирюша.jpg')}/>}>
+               Кирилл Миновский
                </RichCell>
             </Card>
           </CardGrid>

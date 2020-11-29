@@ -33,6 +33,7 @@ import Link from "./panels/games/linkAccount";
 import PageGame from "./panels/games/pageGame";
 import SelectMarketPlace from "./panels/selection_players";
 import SelPeople from "./panels/selection_players/selPeople";
+import UserPage from "./panels/page_user/";
 import People from "./panels/selection_players/people";
 import Team from "./panels/team_main";
 import TeamAdd from "./panels/team_main/AddTeam";
@@ -267,7 +268,7 @@ const App = () => {
                     <View activePanel="people" id="people">
                         <People id='people'/>
                     </View>
-
+                  
                     {/*Тут обозначаете условный "роут"*/}
                     <View activePanel="page_team" id="page_team">
                         <PageTeam id='page_team'/>
