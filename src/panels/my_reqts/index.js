@@ -19,6 +19,7 @@ import {postRequestsTextReq} from "../../store/requests/actions";
 const AddReq = ({id}) => {
     const dispatch = useDispatch()
     const ui = useSelector(s => s.dynamic_ui)
+    const games = useSelector(s => s.games.your)
     const {register, handleSubmit, getValues} = useForm();
 
     const onSubmit = data => {
@@ -66,7 +67,8 @@ const AddReq = ({id}) => {
 
                         <FormLayout>
                             <FormLayoutGroup top="Игра">
-                                <Input type="text" defaultValue={ui.selected_game} placeholder="Выберите игру"
+                                <Input type="text" defaultValue={games.filter(s => s.game_id === ui.selected_game)[0]
+                                    ? games.filter(s => s.game_id === ui.selected_game)[0].name : null} placeholder="Выберите игру"
                                        name="game_id"
                                        onClick={() => dispatch(uiActions.open_modal('select_game'))}
                                 right={<Icon24GameOutline/>}/>
@@ -74,7 +76,7 @@ const AddReq = ({id}) => {
                         </FormLayout>
 
                         <FormLayout>
-                            <Checkbox>Я прочитал и согласен {ui.selected_game} с <Link>правилами</Link></Checkbox>
+                            <Checkbox>Я прочитал и согласен с <Link>правилами</Link></Checkbox>
                         </FormLayout>
 
                         {/*тут твой уникальный код*/}
