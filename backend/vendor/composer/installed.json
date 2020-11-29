@@ -1,0 +1,177 @@
+[
+    {
+        "name": "digitalstars/daemon",
+        "version": "v1.0.5",
+        "version_normalized": "1.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/digitalstars/Daemon.git",
+            "reference": "576b2ffc7d8ee54c482feee74004ef43d684c2ba"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/digitalstars/Daemon/zipball/576b2ffc7d8ee54c482feee74004ef43d684c2ba",
+            "reference": "576b2ffc7d8ee54c482feee74004ef43d684c2ba",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pcntl": "*",
+            "ext-posix": "*",
+            "ext-sysvmsg": "*",
+            "php": ">=7.1"
+        },
+        "time": "2020-10-21T11:57:59+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "DigitalStars\\Daemon\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "ZeRoX",
+                "email": "as234zx15@yandex.ru"
+            },
+            {
+                "name": "Runnin",
+                "email": "mr.kirilll12@mail.ru"
+            }
+        ],
+        "description": "Library for easy work and create PHP Daemons"
+    },
+    {
+        "name": "digitalstars/database",
+        "version": "v1.0.4",
+        "version_normalized": "1.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/digitalstars/DataBase.git",
+            "reference": "ba44c92abe2acbdab04cd894c07aed09e96e385d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/digitalstars/DataBase/zipball/ba44c92abe2acbdab04cd894c07aed09e96e385d",
+            "reference": "ba44c92abe2acbdab04cd894c07aed09e96e385d",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pdo": "*",
+            "php": ">=5.4"
+        },
+        "time": "2020-08-12T16:01:59+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "DigitalStars\\DataBase\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "ZeRoX",
+                "email": "as234zx15@yandex.ru"
+            },
+            {
+                "name": "Runnin",
+                "email": "mr.kirilll12@mail.ru"
+            }
+        ],
+        "description": "Library for easy work with databases"
+    },
+    {
+        "name": "digitalstars/simple-api",
+        "version": "v1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/digitalstars/simple-api.git",
+            "reference": "d755b60f0fd800bdfa29fba4897c8dbc4f4db1c1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/digitalstars/simple-api/zipball/d755b60f0fd800bdfa29fba4897c8dbc4f4db1c1",
+            "reference": "d755b60f0fd800bdfa29fba4897c8dbc4f4db1c1",
+            "shasum": ""
+        },
+        "require": {
+            "ext-json": "*",
+            "php": ">=7.0"
+        },
+        "time": "2020-10-07T19:10:44+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "DigitalStars\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "ZeRoX",
+                "email": "as234zx15@yandex.ru"
+            },
+            {
+                "name": "Runnin",
+                "email": "mr.kirilll12@mail.ru"
+            }
+        ],
+        "description": "Библиотека для простого создания POST/GET API"
+    },
+    {
+        "name": "digitalstars/simplevk",
+        "version": "v2.13.2",
+        "version_normalized": "2.13.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/digitalstars/simplevk.git",
+            "reference": "5bf04712c6ce34cfa21d6fe7ad93212597cd0a1b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/digitalstars/simplevk/zipball/5bf04712c6ce34cfa21d6fe7ad93212597cd0a1b",
+            "reference": "5bf04712c6ce34cfa21d6fe7ad93212597cd0a1b",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "php": ">=5.6"
+        },
+        "time": "2020-08-27T17:14:54+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "DigitalStar\\vk_api\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "ZeRoX",
+                "email": "as234zx15@yandex.ru"
+            },
+            {
+                "name": "Runnin",
+                "email": "mr.kirilll12@mail.ru"
+            }
+        ],
+        "description": "Library for easy work with VK com api"
+    }
+]
