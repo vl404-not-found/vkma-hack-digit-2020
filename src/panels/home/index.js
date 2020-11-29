@@ -39,11 +39,11 @@ const Home = ({id}) => {
             <FixedLayout vertical="top">
                 <Search icon={
                     <div style={{display: "flex", marginRight: "80%"}}>
-                        <div style={{margin: "7px"}}
-                             onClick={() => dispatch(uiActions.open_modal('requests/your'))}>
+                        <div style={{margin: "7px"}}>
                             <Icon24GameOutline/>
                         </div>
-                        <div style={{margin: "7px"}}>
+                        <div style={{margin: "7px"}}
+                             onClick={() => dispatch(uiActions.open_modal('filter_main'))}>
                             <Icon24Filter/>
                         </div>
                     </div>

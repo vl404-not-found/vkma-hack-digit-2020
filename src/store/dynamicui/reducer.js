@@ -6,7 +6,7 @@ const initialState = {
     isLoaderShow: false,
     history: [ window.location.hash.length < 1 ? 'requests/gamers' : window.location.hash.substr(1)],
     start_data: {...qs.parse(window.location.search.substr(1))},
-    modal: null
+    modal: 'select_team'
         // ((window.location.pathname === '/')
         //     || (window.location.hash.includes('')))
         //     ? 'requests/gamers'

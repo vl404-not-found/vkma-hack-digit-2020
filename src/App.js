@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import View from '@vkontakte/vkui/dist/components/View/View';
 import '@vkontakte/vkui/dist/vkui.css';
 
@@ -20,7 +20,7 @@ import {
     Select,
     SimpleCell,
     Div,
-    Button
+    Button, Search, Radio, Avatar, Cell
 } from "@vkontakte/vkui";
 
 import {TabBar} from "./components/TabBar";
@@ -41,24 +41,33 @@ import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
 import PageTeam from "./panels/page_team";
 import PageUser from "./panels/page_user";
 import * as uiActions from './store/dynamicui/actions'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import EditTeamPage from "./panels/page_team/edit_team_req";
 import ListTeamReq from "./panels/page_team/list_team_req";
 import ListTeammates from "./panels/page_team/edit_teammates";
+import {getYourAdminTeam} from "./store/requests/actions";
 
 const App = () => {
     const dispatch = useDispatch()
     const [ui, SetUi] = useState(store.getState().dynamic_ui)
+    const adm_teams = useSelector(s => s.requests.my_adm_team)
+
     function handleActions() {
         SetUi(store.getState().dynamic_ui)
     }
+
     store.subscribe(handleActions)
 
+
+    useEffect(() => {
+        dispatch(getYourAdminTeam.saga())
+    }, [dispatch])
 
     const baseModal = (
         <ModalRoot activeModal={ui.modal} onClose={() => dispatch(uiActions.open_modal(null))}>
             <ModalPage id="filter_main"
-                       header={<ModalPageHeader left={<Icon24Cancel/>} right={<>Очистить</>}>
+                       header={<ModalPageHeader left={<Icon24Cancel
+                           onClick={() => dispatch(uiActions.open_modal(null))}/>} right={<>Очистить</>}>
                            Фильтры
                        </ModalPageHeader>}>
                 <FormLayout>
@@ -67,9 +76,66 @@ const App = () => {
                         <option value="f">По новизне</option>
                     </Select>
                 </FormLayout>
+                <FormLayout>
+                    <Select top="Пол">
+                        <option value="f">Женский</option>
+                        <option value="m">Мужской</option>
+                        <option value="d" selected>Не важно</option>
+                    </Select>
+                </FormLayout>
+                <FormLayout>
+                    <Select top="Наличие микрофона">
+                        <option value="d" selected>Не важно</option>
+                        <option value="y">Есть</option>
+                    </Select>
+                </FormLayout>
+                <Div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    width: '100%',
+                    justifyItems: 'around',
+                    flexWrap: 'wrap'
+                }}>
+                    <Select top="Возраст">
+                        <option value="d" selected>Не важно</option>
+                        <option value="y">Есть</option>
+                    </Select>
+                    <Div>
+                        -
+                    </Div>
+                    <Select top='Возраст'>
+                        <option value="d" selected>Не важно</option>
+                        <option value="y">Есть</option>
+                    </Select>
+                </Div>
+                <Div>
+                    <Button size='xl' onClick={() => dispatch(uiActions.open_modal(null))}>
+                        Показать результаты
+                    </Button>
+                </Div>
+            </ModalPage>
+            <ModalPage id={'select_team'}
+                       dynamicContentHeight={true}
+                       settlingHeight={30}
+                       header={<ModalPageHeader left={<Icon24Cancel
+                           onClick={() => dispatch(uiActions.open_modal(null))}/>}>
+                           Выбор команды
+                       </ModalPageHeader>}>
+                <Search/>
+
+                {Array.isArray(adm_teams) ? adm_teams.map((item) => (
+                    <>
+                        <Radio value={item.id}>
+                            <Cell before={<Avatar size={40} src={item.avatar}/>}>
+                                {item.name}
+                            </Cell>
+                        </Radio>
+                    </>
+                )) : 'нет команд'}
+                {/*get_admin_teams*/}
             </ModalPage>
             <ModalPage id="selectgames">
-                <Panel>
+                <Panel id={'selectgames'}>
                     <PanelHeader
                         onClick={() => dispatch(uiActions.open_modal(null))}
                         right={'Очистить'}
@@ -110,7 +176,7 @@ const App = () => {
             <ToastContainer/>
             <Root activeView={'epic'} modal={baseModal} popout={ui.isLoaderShow ?
                 <PopoutWrapper hasMask={true}><ScreenSpinner size='large'/></PopoutWrapper> : null}>
-                    <Epic id={'epic'} activeStory={ui.history[ui.history.length - 1].split("/")[0]} tabbar={<TabBar/>}>
+                <Epic id={'epic'} activeStory={ui.history[ui.history.length - 1].split("/")[0]} tabbar={<TabBar/>}>
                     <View activePanel="requests"
                           id={'requests'}
                     >
